@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- colpal level up-->
+    <color name="lv_purple">#7030B5</color>
+    <color name="lv_yellow">#FCCB63</color>
+    <color name="lv_green">#24BED0</color>
+    <color name="lv_pink">#24BED0</color>
 </resources>
