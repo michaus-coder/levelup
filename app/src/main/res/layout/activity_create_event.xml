@@ -31,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/judul_create_event">
+        app:layout_constraintTop_toBottomOf="@+id/judul_create_event"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cons_create_event"
@@ -54,14 +55,14 @@
             <EditText
                 android:id="@+id/et_create_event"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/shape1"
                 android:gravity="center"
                 android:hint="Input Event Title"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event" />
@@ -82,14 +83,14 @@
             <EditText
                 android:id="@+id/et_create_event_2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/shape1"
                 android:gravity="center"
                 android:hint="dd/mm/yy"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/et_create_event"
                 app:layout_constraintStart_toStartOf="@+id/et_create_event"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_2" />
@@ -137,13 +138,14 @@
             <EditText
                 android:id="@+id/et_create_event_4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/shape1"
                 android:gravity="center"
                 android:hint="https://linkmeeting.com"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/et_create_event"
                 app:layout_constraintStart_toStartOf="@+id/et_create_event"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_4" />
@@ -164,34 +166,62 @@
             <EditText
                 android:id="@+id/et_create_event_5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/shape1"
                 android:gravity="center"
                 android:hint="nanti ganti spinner mungkin?"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/et_create_event"
                 app:layout_constraintStart_toStartOf="@+id/et_create_event"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_5" />
 
             <TextView
                 android:id="@+id/tv_create_event_6"
-                android:layout_width="match_parent"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Event Price"
                 android:textColor="@color/black"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="498dp" />
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_5"
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_5" />
 
             <TextView
                 android:id="@+id/tv_create_event_7"
-                android:layout_width="match_parent"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Minimum Age"
                 android:textColor="@color/black"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="465dp" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event_5"
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_5" />
+
+            <EditText
+                android:id="@+id/et_create_event_6"
+                android:layout_width="165dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="Rp. 0.00"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_6"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_6" />
+
+            <EditText
+                android:id="@+id/et_create_event_7"
+                android:layout_width="165dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="0"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event_7"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_7"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_7" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -206,5 +236,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>
