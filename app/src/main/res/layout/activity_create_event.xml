@@ -22,7 +22,7 @@
     <ScrollView
         android:id="@+id/sc_create_event"
         android:layout_width="405dp"
-        android:layout_height="570dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="3dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/et_create_event"
+                android:id="@+id/et_create_event_title"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -74,10 +74,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_title" />
 
             <EditText
-                android:id="@+id/et_create_event_2"
+                android:id="@+id/et_create_event_date"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -87,8 +87,8 @@
                 android:gravity="center"
                 android:hint="dd/mm/yy"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_create_event"
-                app:layout_constraintStart_toStartOf="@+id/et_create_event"
+                app:layout_constraintEnd_toEndOf="@+id/et_create_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_create_event_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_2" />
 
             <TextView
@@ -102,10 +102,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event_2" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_date" />
 
             <EditText
-                android:id="@+id/et_create_event_3"
+                android:id="@+id/et_create_event_desc"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="20dp"
@@ -114,12 +114,12 @@
                 android:background="@drawable/shape1"
                 android:gravity="center"
                 android:hint="Event Description"
-                app:layout_constraintEnd_toEndOf="@+id/et_create_event"
-                app:layout_constraintStart_toStartOf="@+id/et_create_event"
+                app:layout_constraintEnd_toEndOf="@+id/et_create_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_create_event_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_3" />
 
             <TextView
-                android:id="@+id/tv_create_event_4"
+                android:id="@+id/tv_create_event_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -129,10 +129,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event_3" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_desc" />
 
             <EditText
-                android:id="@+id/et_create_event_4"
+                android:id="@+id/et_create_event_link"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -142,9 +142,9 @@
                 android:gravity="center"
                 android:hint="https://linkmeeting.com"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_create_event"
-                app:layout_constraintStart_toStartOf="@+id/et_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_4" />
+                app:layout_constraintEnd_toEndOf="@+id/et_create_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_create_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_link" />
 
             <TextView
                 android:id="@+id/tv_create_event_5"
@@ -157,10 +157,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event_4" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_link" />
 
             <EditText
-                android:id="@+id/et_create_event_5"
+                android:id="@+id/et_create_event_category"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -170,8 +170,8 @@
                 android:gravity="center"
                 android:hint="nanti ganti spinner mungkin?"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_create_event"
-                app:layout_constraintStart_toStartOf="@+id/et_create_event"
+                app:layout_constraintEnd_toEndOf="@+id/et_create_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_create_event_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_5" />
 
             <TextView
@@ -182,7 +182,7 @@
                 android:text="Event Price"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event_5"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event_5" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_category" />
 
             <TextView
                 android:id="@+id/tv_create_event_7"
@@ -192,10 +192,10 @@
                 android:text="Minimum Age"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event_5"
-                app:layout_constraintTop_toBottomOf="@+id/et_create_event_5" />
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_category" />
 
             <EditText
-                android:id="@+id/et_create_event_6"
+                android:id="@+id/et_create_event_price"
                 android:layout_width="165dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
@@ -207,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_6" />
 
             <EditText
-                android:id="@+id/et_create_event_7"
+                android:id="@+id/et_create_event_age"
                 android:layout_width="165dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
@@ -218,6 +218,66 @@
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event_7"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event_7"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_7" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#FCCB63"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_create_event_price">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_create_event_file"
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#24BED0"
+                        android:text="Choose File"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="43dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="32dp"
+                        android:gravity="center"
+                        android:hint="No File Chosen"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_create_event_file"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_create_event_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="120dp"
+                android:backgroundTint="#7030B5"
+                android:text="Submit"
+                android:textColor="#FCCB63"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -236,7 +296,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_navigation">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
