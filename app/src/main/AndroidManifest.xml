@@ -16,6 +16,17 @@
             android:name=".Dashboard"
             android:exported="true" />
         <activity
+            android:name=".EventsEvent"
+            android:exported="true" />
+        <activity
+            android:name=".AddCertificateEvent"
+            android:exported="true" />
+        <activity
+            android:name=".ReviewEvent"
+            android:exported="true"
+            android:label="@string/title_activity_review_event"
+            android:theme="@style/Theme.LevelUp.NoActionBar" />
+        <activity
             android:name=".CreateEvent"
             android:exported="true" />
         <activity
