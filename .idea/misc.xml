@@ -19,6 +19,29 @@
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/layout_dashboard.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/button_background.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/button_focus.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/button_press.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/button_unfocused.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/circle.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/ic_date_svgrepo_com_2.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/ic_notification_svgrepo_com.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/ic_password_svgrepo_com.xml" value="0.340625" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/profile.xml" value="0.19322916666666667" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/drawable/text_rounded.xml" value="1.159375" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_add_certificate_event.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_create_event.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_events_event.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_login.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_main.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_profile.xml" value="0.2679738562091503" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_review_event.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/activity_sign_up.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/layout/cardeventrv.xml" value="0.32447916666666665" />
+        <entry key="..\:/AndroidStudioProjects/levelup/app/src/main/res/menu/menu_navigation.xml" value="0.32447916666666665" />
       </map>
     </option>
   </component>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LevelUp">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditEvent"
             android:exported="true" />
         <activity
