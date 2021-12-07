@@ -40,7 +40,7 @@
 
         <ImageView
             android:id="@+id/imgEvent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"
+
             android:layout_width="match_parent"
             android:layout_height="85dp" />
 
