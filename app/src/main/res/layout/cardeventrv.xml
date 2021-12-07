@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView22"
+        android:layout_width="130dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/lv_yellow"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnJoinEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="134dp"
+            app:cardBackgroundColor="@color/lv_purple">
+
+            <TextView
+                android:id="@+id/textView931"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="Join"
+                android:textColor="@color/white"
+                android:textSize="8sp" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgEvent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:layout_width="match_parent"
+            android:layout_height="85dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="88dp"
+            app:cardBackgroundColor="@color/lv_purple"
+            app:cardCornerRadius="5dp">
+
+            <TextView
+                android:id="@+id/dateEvents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="21 Dec' 21"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="8sp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/titleEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="4dp"
+            android:text="Skripsi 101 Workshop Skripsi"
+            android:textColor="@color/lv_purple"
+            android:textSize="8dp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="112dp"
+            app:cardBackgroundColor="@color/lv_purple">
+
+            <TextView
+                android:id="@+id/locationEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="ZOOM MEETING"
+                android:textColor="@color/white"
+                android:textSize="6dp" />
+
+            <TextView
+                android:id="@+id/timeEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="19.00"
+                android:textColor="@color/white"
+                android:textSize="6sp" />
+
+            <TextView
+                android:id="@+id/priceEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                android:text="Rp. 10.000"
+                android:textColor="@color/white"
+                android:textSize="6sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnDetailEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="134dp"
+            app:cardBackgroundColor="@color/lv_purple">
+
+            <TextView
+                android:id="@+id/textView9151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="Details"
+                android:textColor="@color/white"
+                android:textSize="8sp" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
