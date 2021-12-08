@@ -13,14 +13,22 @@
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/drawable/profile.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/drawable/selector.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/drawable/shape1.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/drawable/shape2.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_add_certificate_event.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_create_event.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_detail_event.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_edit_event.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_events_event.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/BRYAN/AndroidStudioProjects/LevelUp/app/src/main/res/layout/activity_create_event.xml" value="0.15208333333333332" />
-        <entry key="..\:/Users/BRYAN/AndroidStudioProjects/LevelUp/app/src/main/res/layout/activity_events_event.xml" value="0.15208333333333332" />
-        <entry key="..\:/Users/BRYAN/AndroidStudioProjects/LevelUp/app/src/main/res/layout/activity_main.xml" value="0.15208333333333332" />
-        <entry key="..\:/Users/BRYAN/AndroidStudioProjects/LevelUp/app/src/main/res/layout/activity_review_event.xml" value="0.15208333333333332" />
-        <entry key="..\:/Users/BRYAN/AndroidStudioProjects/LevelUp/app/src/main/res/layout/cardeventrv.xml" value="0.15208333333333332" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_profile.xml" value="0.2246376811594203" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_review_event.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/activity_sign_up.xml" value="0.2246376811594203" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/cardeventrv.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/layout/layout_dashboard.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProject_/levelup/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.17239583333333333" />
       </map>
     </option>
   </component>

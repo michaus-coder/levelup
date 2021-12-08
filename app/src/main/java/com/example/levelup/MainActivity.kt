@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
 //        val _buttons = findViewById<Button>(R.id.buttons)
 //        _buttons.setOnClickListener {
-//            val intentbs = Intent(this@MainActivity, Dashboard::class.java)
+//            val intentbs = Intent(this@MainActivity, DetailEvent::class.java)
 //            startActivity(intentbs)
 //        }
     }
