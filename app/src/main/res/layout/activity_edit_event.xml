@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditEvent">
+
+    <TextView
+        android:id="@+id/judul_edit_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Edit Event for"
+        android:textColor="#7030B5"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/judul_edit_event2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:text="Skripsi 101"
+        android:textColor="#7030B5"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/judul_edit_event"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/judul_edit_event3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workshop Skripsi"
+        android:textColor="#7030B5"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/judul_edit_event"
+        app:layout_constraintTop_toBottomOf="@+id/judul_edit_event" />
+
+    <ScrollView
+        android:id="@+id/sc_create_event"
+        android:layout_width="405dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/judul_edit_event3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cons_create_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_create_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text="Event Title"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_edit_event_title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="Input Event Title"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event" />
+
+            <TextView
+                android:id="@+id/tv_create_event_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Date and Time"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_title" />
+
+            <EditText
+                android:id="@+id/et_edit_event_date"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="dd/mm/yy"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_2" />
+
+            <TextView
+                android:id="@+id/tv_create_event_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Description"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_date" />
+
+            <EditText
+                android:id="@+id/et_edit_event_desc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="Event Description"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_3" />
+
+            <TextView
+                android:id="@+id/tv_create_event_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Event Link"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_desc" />
+
+            <EditText
+                android:id="@+id/et_edit_event_link"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="https://linkmeeting.com"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_4" />
+
+            <TextView
+                android:id="@+id/tv_create_event_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Event Category"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_link" />
+
+            <TextView
+                android:id="@+id/tv_create_event_6"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Event Price"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_5"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_edit_event" />
+
+            <TextView
+                android:id="@+id/tv_create_event_7"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Minimum Age"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event_5"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_edit_event" />
+
+            <EditText
+                android:id="@+id/et_edit_event_price"
+                android:layout_width="165dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="Rp. 0.00"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_6"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_6" />
+
+            <EditText
+                android:id="@+id/et_edit_event_age"
+                android:layout_width="165dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="0"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event_7"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event_7"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_7" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#FCCB63"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_price">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_edit_event_file"
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#24BED0"
+                        android:text="Choose File"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="43dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="32dp"
+                        android:gravity="center"
+                        android:hint="No File Chosen"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_edit_event_file"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_edit_event_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="155dp"
+                android:backgroundTint="#7030B5"
+                android:text="Submit Edit"
+                android:textColor="#FCCB63"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+            <Spinner
+                android:id="@+id/spinner_edit_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_5" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/lv_purple"
+        app:itemIconTint="@color/lv_yellow"
+        app:itemTextColor="@color/lv_yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
