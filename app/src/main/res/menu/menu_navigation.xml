@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
+        android:enabled="true"
         android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24">
-    </item>
+        android:icon="@drawable/ic_baseline_home_24"/>
     <item
         android:id="@+id/events"
         android:title="Events"
-        android:icon="@drawable/events">
-    </item>
+        android:enabled="true"
+        android:icon="@drawable/events"/>
     <item
         android:id="@+id/dashboard"
         android:title="Dashboard"
-        android:icon="@drawable/ic_baseline_dashboard_24">
-    </item>
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_dashboard_24"/>
     <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/profile">
-    </item>
+        android:enabled="true"
+        android:icon="@drawable/profile"/>
 </menu>
