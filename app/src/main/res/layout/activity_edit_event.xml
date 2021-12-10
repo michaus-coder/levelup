@@ -229,65 +229,22 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event_7"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_7" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="#FCCB63"
-                app:cardCornerRadius="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_price">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <Button
-                        android:id="@+id/btn_edit_event_file"
-                        android:layout_width="140dp"
-                        android:layout_height="50dp"
-                        android:backgroundTint="#24BED0"
-                        android:text="Choose File"
-                        android:textSize="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="150dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="43dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="32dp"
-                        android:gravity="center"
-                        android:hint="No File Chosen"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/btn_edit_event_file"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
             <Button
                 android:id="@+id/btn_edit_event_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="100dp"
-                android:layout_marginBottom="155dp"
+                android:layout_marginBottom="160dp"
                 android:backgroundTint="#7030B5"
                 android:text="Submit Edit"
                 android:textColor="#FCCB63"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_price" />
 
             <Spinner
                 android:id="@+id/spinner_edit_event"

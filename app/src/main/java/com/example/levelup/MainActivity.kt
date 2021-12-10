@@ -17,11 +17,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         navigationView.setOnNavigationItemSelectedListener(this)
         navigationView.selectedItemId = R.id.home
 
-//        val _buttons = findViewById<Button>(R.id.buttons)
-//        _buttons.setOnClickListener {
-//            val intentbs = Intent(this@MainActivity, DetailEvent::class.java)
-//            startActivity(intentbs)
-//        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

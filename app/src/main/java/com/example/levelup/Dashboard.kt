@@ -12,8 +12,8 @@ class Dashboard : AppCompatActivity() {
 
         val _btn_create_event = findViewById<Button>(R.id.btn_create_event)
         _btn_create_event.setOnClickListener {
-            val intentbs = Intent(this@Dashboard, CreateEvent::class.java)
-            startActivity(intentbs)
+            val intent_d = Intent(this@Dashboard, CreateEvent::class.java)
+            startActivity(intent_d)
         }
 
     }
