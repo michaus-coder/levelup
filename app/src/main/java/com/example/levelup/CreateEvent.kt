@@ -1,43 +1,129 @@
 package com.example.levelup
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 
 class CreateEvent : AppCompatActivity() {
+    lateinit var db : FirebaseFirestore
+    lateinit var _time : TimePicker
+    lateinit var _date : DatePicker
+    lateinit var dialog: AlertDialog
+    lateinit var layout : LinearLayout
+    lateinit var full_date : String
+    lateinit var full_time : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_event)
 
+        db = FirebaseFirestore.getInstance()
+
         val _et_create_event_title = findViewById<EditText>(R.id.et_create_event_title)
-        val _et_create_event_date = findViewById<EditText>(R.id.et_create_event_date)
+        val _btn_create_event_setDate = findViewById<Button>(R.id.btn_create_event_setDate)
+        val _btn_create_event_setTime = findViewById<Button>(R.id.btn_create_event_setTime)
         val _et_create_event_desc = findViewById<EditText>(R.id.et_create_event_desc)
         val _et_create_event_link = findViewById<EditText>(R.id.et_create_event_link)
         val _et_create_event_price = findViewById<EditText>(R.id.et_create_event_price)
         val _et_create_event_age = findViewById<EditText>(R.id.et_create_event_age)
+        val _spinner_create_event = findViewById<Spinner>(R.id.spinner_create_event)
         val _btn_create_event_submit = findViewById<Button>(R.id.btn_create_event_submit)
 
+        _date = DatePicker(this)
+        _time = TimePicker(this)
+        dialog = AlertDialog.Builder(this).create()
+        layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+
+
+        _btn_create_event_setDate.setOnClickListener {
+            layout.addView(_date)
+            dialog.setView(layout)
+            dialog.setButton(
+                DialogInterface.BUTTON_POSITIVE, "Submit",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    layout.removeView(_date)
+
+                    //Date
+                    var day = _date.dayOfMonth.toString()
+                    var month = (_date.month + 1).toString()
+                    var year = _date.year.toString()
+                    full_date = day + "-" + month + "-" + year
+
+                    _btn_create_event_setDate.text = full_date
+
+                })
+            dialog.setButton(
+                DialogInterface.BUTTON_NEGATIVE, "Close",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    layout.removeView(_date)
+                    dialogInterface.cancel()
+                })
+            dialog.show()
+        }
+
+        _btn_create_event_setTime.setOnClickListener {
+            layout.addView(_time)
+            dialog.setView(layout)
+            dialog.setButton(
+                DialogInterface.BUTTON_POSITIVE, "Submit",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    layout.removeView(_time)
+
+                    //Time
+                    var menit = _time.minute.toString()
+                    var jam = _time.hour.toString()
+                    full_time = jam + " : " + menit
+
+                    _btn_create_event_setTime.text = full_time
+                })
+            dialog.setButton(
+                DialogInterface.BUTTON_NEGATIVE, "Close",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    layout.removeView(_time)
+                    dialogInterface.cancel()
+                })
+            dialog.show()
+        }
 
         _btn_create_event_submit.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("eventTitle", _et_create_event_title.text.toString())
-            bundle.putString("eventDate", _et_create_event_date.text.toString())
-            bundle.putString("eventDesc", _et_create_event_desc.text.toString())
-            bundle.putString("eventLink", _et_create_event_link.text.toString())
-            bundle.putString("eventPrice", _et_create_event_price.text.toString())
-            bundle.putString("eventAge", _et_create_event_age.text.toString())
 
-            val intent = Intent(this, EventsEvent::class.java)
-            intent.putExtras(bundle)
+            val dataBaru = CreateEventData(
+                _et_create_event_title.text.toString(),
+                full_date,
+                full_time,
+                _et_create_event_desc.text.toString(),
+                _et_create_event_link.text.toString(),
+                _spinner_create_event.textAlignment.toString(),
+                _et_create_event_price.text.toString(),
+                _et_create_event_age.text.toString()
+            )
+
+            db.collection("createEventData")
+                .add(dataBaru)
+                .addOnSuccessListener {
+                    Log.d("Firebase", "Simpan Data Berhasil")
+                }
+                .addOnFailureListener {
+                    Log.d("Firebase", it.message.toString())
+                }
+
+            val intent = Intent(this@CreateEvent, Dashboard::class.java)
             startActivity(intent)
         }
 
         //Spinner
         val spinner_data = arrayOf("1", "2", "3")
-        val _spinner_create_event = findViewById<Spinner>(R.id.spinner_create_event)
         val arrayAdapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,spinner_data)
         _spinner_create_event.adapter = arrayAdapter
         _spinner_create_event.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
