@@ -226,6 +226,8 @@
         app:layout_constraintStart_toEndOf="@+id/btnLogout"
         app:layout_constraintTop_toTopOf="@+id/btnLogout" />
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
