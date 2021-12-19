@@ -101,19 +101,34 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
                 app:layout_constraintTop_toBottomOf="@+id/et_edit_event_title" />
 
-            <EditText
-                android:id="@+id/et_edit_event_date"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
+
+            <Button
+                android:id="@+id/btn_edit_event_setDate"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/shape1"
+                android:backgroundTint="#FCCB63"
                 android:gravity="center"
-                android:hint="dd/mm/yy"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
-                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                android:text="Set Date"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_2" />
+
+
+            <Button
+                android:id="@+id/btn_edit_event_setTime"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FCCB63"
+                android:gravity="center"
+                android:text="Set Date"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_2" />
 
             <TextView
@@ -127,7 +142,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_date" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_edit_event_setDate" />
 
             <EditText
                 android:id="@+id/et_edit_event_desc"
