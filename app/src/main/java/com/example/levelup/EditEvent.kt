@@ -1,5 +1,6 @@
 package com.example.levelup
 
+import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,7 +45,7 @@ class EditEvent : AppCompatActivity() {
         val _spinner_edit_event = findViewById<Spinner>(R.id.spinner_edit_event)
         val _btn_edit_event_submit = findViewById<Button>(R.id.btn_edit_event_submit)
 
-        readData()
+        //readData()
 
         _date = DatePicker(this)
         _time = TimePicker(this)
@@ -122,24 +123,41 @@ class EditEvent : AppCompatActivity() {
 
     } // end onCreate
 
-    fun readData() {
-        db.collection("createEventData").get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val dataEdit = CreateEventData(
-                        document.data.get("title").toString(),
-                        document.data.get("date").toString(),
-                        document.data.get("time").toString(),
-                        document.data.get("description").toString(),
-                        document.data.get("link").toString(),
-                        document.data.get("category").toString(),
-                        document.data.get("price").toString(),
-                        document.data.get("age").toString())
-                }
-            }
-            .addOnFailureListener {
-                Log.d("Firebase", it.message.toString())
-            }
-    }
+//    fun readData() {
+//        db.collection("createEventData").get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    val dataEdit = CreateEventData(
+//                        document.data.get("title").toString(),
+//                        document.data.get("date").toString(),
+//                        document.data.get("time").toString(),
+//                        document.data.get("description").toString(),
+//                        document.data.get("link").toString(),
+//                        document.data.get("category").toString(),
+//                        document.data.get("price").toString(),
+//                        document.data.get("age").toString())
+//                }
+//            }
+//            .addOnFailureListener {
+//                Log.d("Firebase", it.message.toString())
+//            }
+//    }
+
+//    fun readData() {
+//        val docref = db.collection("createEventData").document("x5UCNiqPRvJNKWm90xle")
+//        docref.get()
+//            .addOnSuccessListener { document ->
+//                if (document != null) {
+//                    _et_edit_event_title.text =
+//                } else {
+//                    Log.d(TAG, "No such document")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d(TAG, "get failed with ", exception)
+//            }
+//    }
+
+
 
 }
