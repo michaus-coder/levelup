@@ -1,10 +1,15 @@
 package com.example.levelup
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,8 +31,6 @@ class Dashboard : AppCompatActivity() {
         readData()
         TampilkanData()
 
-
-
         val _btn_create_event = findViewById<Button>(R.id.btn_create_event)
         _btn_create_event.setOnClickListener {
             val intent_d = Intent(this@Dashboard, CreateEvent::class.java)
@@ -41,6 +44,12 @@ class Dashboard : AppCompatActivity() {
 
         val adapterZ = adapterDashboard(dataArrDashboard)
         _rv_dashboard.adapter = adapterZ
+
+        val _btn_delete_dashboard = findViewById<Button>(R.id.btn_delete_dashboard)
+        _btn_delete_dashboard.setOnClickListener {
+
+        }
+
     }
 
     fun readData() {
@@ -67,4 +76,23 @@ class Dashboard : AppCompatActivity() {
             }
     }
 
+//    fun HapusDataFirebase() {
+//        db.collection("cities").document()
+//            .delete()
+//            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+//            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+//    }
+
+//    fun deleteFirebase(db : FirebaseFirestore, title: String) {
+//        db.collection("createEventData").document(title)
+//            .delete()
+//            .addOnSuccessListener {
+//                readData()
+//            }
+//            .addOnFailureListener {
+//                Log.d("Firebase", it.message.toString())
+//            }
+//    }
+
 }
+
