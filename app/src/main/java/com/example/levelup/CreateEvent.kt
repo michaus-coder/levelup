@@ -98,28 +98,28 @@ class CreateEvent : AppCompatActivity() {
 
         _btn_create_event_submit.setOnClickListener {
 
-            val dataBaru = CreateEventData(
-                _et_create_event_title.text.toString(),
-                full_date,
-                full_time,
-                _et_create_event_desc.text.toString(),
-                _et_create_event_link.text.toString(),
-                _spinner_create_event.textAlignment.toString(),
-                _et_create_event_price.text.toString(),
-                _et_create_event_age.text.toString()
-            )
+//            val dataBaru = CreateEventData(
+//                _et_create_event_title.text.toString(),
+//                full_date,
+//                full_time,
+//                _et_create_event_desc.text.toString(),
+//                _et_create_event_link.text.toString(),
+//                _spinner_create_event.textAlignment.toString(),
+//                _et_create_event_price.text.toString(),
+//                _et_create_event_age.text.toString()
+//            )
 
-            db.collection("createEventData")
-                .add(dataBaru)
-                .addOnSuccessListener {
-                    Log.d("Firebase", "Simpan Data Berhasil")
-                }
-                .addOnFailureListener {
-                    Log.d("Firebase", it.message.toString())
-                }
-
-            val intent = Intent(this@CreateEvent, Dashboard::class.java)
-            startActivity(intent)
+//            db.collection("createEventData")
+//                .add(dataBaru)
+//                .addOnSuccessListener {
+//                    Log.d("Firebase", "Simpan Data Berhasil")
+//                }
+//                .addOnFailureListener {
+//                    Log.d("Firebase", it.message.toString())
+//                }
+//
+//            val intent = Intent(this@CreateEvent, Dashboard::class.java)
+//            startActivity(intent)
         }
 
         //Spinner

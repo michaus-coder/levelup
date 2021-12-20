@@ -100,6 +100,7 @@ class SignUpActivity : AppCompatActivity() {
         val etBirthdate = findViewById<EditText>(R.id.etBirthdate)
         val etName = findViewById<EditText>(R.id.etName)
         val etEmail = findViewById<EditText>(R.id.etEmail)
+        val etPhone = findViewById<EditText>(R.id.etPhone)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val etPasswordConfirm = findViewById<EditText>(R.id.etPasswordConfirm)
         val btnSignUp = findViewById<Button>(R.id.btnSignUp)
@@ -155,7 +156,7 @@ class SignUpActivity : AppCompatActivity() {
                                         uid = profile.uid
                                     }
                                 }
-                                val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri)
+                                val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri)
                                 db.collection("userdata")
                                     .document(uid)
                                     .set(newUser)
@@ -237,7 +238,7 @@ class SignUpActivity : AppCompatActivity() {
                                                 uid = profile.uid
                                             }
                                         }
-                                        val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri.toString())
+                                        val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri.toString())
                                         db.collection("userdata")
                                             .document(uid)
                                             .set(newUser)
