@@ -36,8 +36,10 @@ class CreateEvent : AppCompatActivity() {
         val _et_create_event_link = findViewById<EditText>(R.id.et_create_event_link)
         val _et_create_event_price = findViewById<EditText>(R.id.et_create_event_price)
         val _et_create_event_age = findViewById<EditText>(R.id.et_create_event_age)
+        val _et_create_event_location = findViewById<EditText>(R.id.et_create_event_location)
         val _spinner_create_event = findViewById<Spinner>(R.id.spinner_create_event)
         val _btn_create_event_submit = findViewById<Button>(R.id.btn_create_event_submit)
+
 
         _date = DatePicker(this)
         _time = TimePicker(this)
@@ -104,9 +106,10 @@ class CreateEvent : AppCompatActivity() {
                 full_time,
                 _et_create_event_desc.text.toString(),
                 _et_create_event_link.text.toString(),
-                _spinner_create_event.textAlignment.toString(),
+                _spinner_create_event.selectedItem.toString(),
                 _et_create_event_price.text.toString(),
-                _et_create_event_age.text.toString()
+                _et_create_event_age.text.toString(),
+                _et_create_event_location.text.toString()
             )
 
             db.collection("createEventData")
