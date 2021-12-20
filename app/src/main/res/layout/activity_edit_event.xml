@@ -51,7 +51,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginEnd="3dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/judul_edit_event3">
 
@@ -245,6 +245,45 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_create_event_7" />
 
 
+            <Spinner
+                android:id="@+id/spinner_edit_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_5" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Location"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
+                app:layout_constraintStart_toStartOf="@+id/tv_create_event"
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_price" />
+
+            <EditText
+                android:id="@+id/et_edit_event_location"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape1"
+                android:gravity="center"
+                android:hint="Location"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
+                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
             <Button
                 android:id="@+id/btn_edit_event_submit"
                 android:layout_width="match_parent"
@@ -259,18 +298,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_price" />
-
-            <Spinner
-                android:id="@+id/spinner_edit_event"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/et_edit_event_title"
-                app:layout_constraintStart_toStartOf="@+id/et_edit_event_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_5" />
+                app:layout_constraintTop_toBottomOf="@+id/et_edit_event_location" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
