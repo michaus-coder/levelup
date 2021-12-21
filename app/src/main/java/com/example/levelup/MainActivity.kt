@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.profile -> {
                 val intent = Intent(this@MainActivity, ProfileActivity::class.java)
                 startActivity(intent)
-                true
             }
             R.id.events -> {
                 val intent = Intent(this@MainActivity, EventsEvent::class.java)

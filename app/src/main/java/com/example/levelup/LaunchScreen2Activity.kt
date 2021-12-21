@@ -19,7 +19,7 @@ class LaunchScreen2Activity : AppCompatActivity() {
         btnGetStarted.setOnClickListener {
             var intent : Intent
             if (currentUser != null){
-                intent = Intent(this@LaunchScreen2Activity, MainActivity::class.java)
+                intent = Intent(this@LaunchScreen2Activity, ProfileActivity::class.java)
             }else{
                 intent = Intent(this@LaunchScreen2Activity, LoginActivity::class.java)
             }

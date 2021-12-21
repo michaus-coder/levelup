@@ -9,5 +9,6 @@ data class User(
     val phone : String,
     val password : String,
     val birthdate : String,
-    val profile : String
+    val profile : String,
+    val yearJoined : String
 )
