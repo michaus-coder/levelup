@@ -107,23 +107,38 @@ class CreateEvent : AppCompatActivity() {
                 full_time,
                 _et_create_event_desc.text.toString(),
                 _et_create_event_link.text.toString(),
-                _spinner_create_event.textAlignment.toString(),
+                _spinner_create_event.selectedItem.toString(),
                 _et_create_event_price.text.toString(),
                 _et_create_event_age.text.toString(),
-                _et_create_event_location.toString()
+                _et_create_event_location.text.toString()
             )
 
             db.collection("createEventData").document(dataBaru.ID)
                 .set(dataBaru)
                 .addOnSuccessListener {
                     Log.d("Firebase", "Simpan Data Berhasil")
+                    Log.d("ID", dataBaru.ID)
                 }
                 .addOnFailureListener {
                     Log.d("Firebase", it.message.toString())
                 }
 
             val intent = Intent(this@CreateEvent, Dashboard::class.java)
+            intent.putExtra("ID",dataBaru.ID)
             startActivity(intent)
+
+//            val intent = Intent(this@CreateEvent, Dashboard::class.java)
+//            val temp_id : String = dataBaru.ID
+//
+//            //Bundle
+//            val bundle = Bundle()
+//            bundle.putString("kirimID", temp_id)
+//
+//            //Add ke bundle
+//            intent.putExtra("kirimID", temp_id)
+//
+//            startActivity(intent)
+
         }
 
         //Spinner

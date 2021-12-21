@@ -12,37 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:text="Edit Event for"
+        android:text="Edit Event"
         android:textColor="#7030B5"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/judul_edit_event2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:text="Skripsi 101"
-        android:textColor="#7030B5"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/judul_edit_event"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/judul_edit_event3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Workshop Skripsi"
-        android:textColor="#7030B5"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/judul_edit_event"
-        app:layout_constraintTop_toBottomOf="@+id/judul_edit_event" />
 
     <ScrollView
         android:id="@+id/sc_create_event"
@@ -53,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/judul_edit_event3">
+        app:layout_constraintTop_toBottomOf="@+id/judul_edit_event">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cons_create_event"
@@ -103,14 +79,14 @@
 
 
             <Button
-                android:id="@+id/btn_edit_event_setDate"
+                android:id="@+id/btn_edit_event_setTime"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="#FCCB63"
                 android:gravity="center"
-                android:text="Set Date"
+                android:text="Set Time"
                 android:textColor="@color/black"
                 app:cornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +94,7 @@
 
 
             <Button
-                android:id="@+id/btn_edit_event_setTime"
+                android:id="@+id/btn_edit_event_setDate"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
@@ -142,7 +118,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/tv_create_event"
                 app:layout_constraintStart_toStartOf="@+id/tv_create_event"
-                app:layout_constraintTop_toBottomOf="@+id/btn_edit_event_setDate" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_edit_event_setTime" />
 
             <EditText
                 android:id="@+id/et_edit_event_desc"
@@ -291,7 +267,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="100dp"
-                android:layout_marginBottom="160dp"
+                android:layout_marginBottom="130dp"
                 android:backgroundTint="#7030B5"
                 android:text="Submit Edit"
                 android:textColor="#FCCB63"

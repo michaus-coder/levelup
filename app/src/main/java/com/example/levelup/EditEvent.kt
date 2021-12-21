@@ -8,7 +8,10 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
+import kotlin.collections.ArrayList
 
 class EditEvent : AppCompatActivity() {
     var dataArrDashboard : ArrayList<CreateEventData> = ArrayList<CreateEventData>()
@@ -28,8 +31,9 @@ class EditEvent : AppCompatActivity() {
     lateinit var _et_edit_event_link : EditText
     lateinit var _et_edit_event_price : EditText
     lateinit var _et_edit_event_age : EditText
-    lateinit var _spinner_edit_event : EditText
-    lateinit var _btn_edit_event_submit : EditText
+    lateinit var _et_edit_event_location : EditText
+    lateinit var _spinner_edit_event : Spinner
+    lateinit var _btn_edit_event_submit : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,17 +41,25 @@ class EditEvent : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        val _et_edit_event_title = findViewById<EditText>(R.id.et_edit_event_title)
-        val _btn_edit_event_setDate = findViewById<Button>(R.id.btn_edit_event_setDate)
-        val _btn_edit_event_setTime = findViewById<Button>(R.id.btn_edit_event_setTime)
-        val _et_edit_event_desc = findViewById<EditText>(R.id.et_edit_event_desc)
-        val _et_edit_event_link = findViewById<EditText>(R.id.et_edit_event_link)
-        val _et_edit_event_price = findViewById<EditText>(R.id.et_edit_event_price)
-        val _et_edit_event_age = findViewById<EditText>(R.id.et_edit_event_age)
-        val _spinner_edit_event = findViewById<Spinner>(R.id.spinner_edit_event)
-        val _btn_edit_event_submit = findViewById<Button>(R.id.btn_edit_event_submit)
+        _et_edit_event_title = findViewById(R.id.et_edit_event_title)
+        _btn_edit_event_setDate = findViewById(R.id.btn_edit_event_setDate)
+        _btn_edit_event_setTime = findViewById(R.id.btn_edit_event_setTime)
+        _et_edit_event_desc = findViewById(R.id.et_edit_event_desc)
+        _et_edit_event_link = findViewById(R.id.et_edit_event_link)
+        _et_edit_event_price = findViewById(R.id.et_edit_event_price)
+        _et_edit_event_age = findViewById(R.id.et_edit_event_age)
+        _et_edit_event_location = findViewById(R.id.et_edit_event_location)
+        _spinner_edit_event = findViewById(R.id.spinner_edit_event)
+        _btn_edit_event_submit = findViewById(R.id.btn_edit_event_submit)
 
-        //readData()
+//        val temp_ID = intent.getStringExtra("ID temp")
+//        Log.d("ID temp", temp_ID.toString())
+
+//        val bundle = intent.getBundleExtra("kirimID")
+//        val temp_id_terima : String = bundle.getString(bundle)
+
+        readData()
+        updateData()
 
         _date = DatePicker(this)
         _time = TimePicker(this)
@@ -106,7 +118,7 @@ class EditEvent : AppCompatActivity() {
         }
 
         //spinner
-        val spinner_data = arrayOf("1", "2", "3")
+        val spinner_data = arrayOf("Birthday", "Meeting", "Gabut")
         val arrayAdapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,spinner_data)
         _spinner_edit_event.adapter = arrayAdapter
         _spinner_edit_event.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -151,6 +163,21 @@ class EditEvent : AppCompatActivity() {
             }
     }
 
+    fun updateData(){
+        val docRef = db.collection("createEventData").document()
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            _et_edit_event_title.setText(documentSnapshot.data?.get("title").toString())
+            _et_edit_event_desc.setText(documentSnapshot.data?.get("description").toString())
+            _et_edit_event_link.setText(documentSnapshot.data?.get("link").toString())
+            _et_edit_event_price.setText(documentSnapshot.data?.get("price").toString())
+            _et_edit_event_age.setText(documentSnapshot.data?.get("age").toString())
+            _et_edit_event_location.setText(documentSnapshot.data?.get("location").toString())
+            _btn_edit_event_setDate.setText(documentSnapshot.data?.get("date").toString())
+            _btn_edit_event_setTime.setText(documentSnapshot.data?.get("time").toString())
+        }
+    }
+
+
 //    fun readData() {
 //        val docref = db.collection("createEventData").document("x5UCNiqPRvJNKWm90xle")
 //        docref.get()
@@ -163,6 +190,19 @@ class EditEvent : AppCompatActivity() {
 //            }
 //            .addOnFailureListener { exception ->
 //                Log.d(TAG, "get failed with ", exception)
+//            }
+//    }
+
+//    fun ini(db : FirebaseFirestore, ID: String) {
+//        db.collection("createEventData").document(ID)
+//            .get()
+//            .addOnSuccessListener {
+//                dataArrDashboard.clear()
+//                readData()
+//                //Log.d("MASUK", ID)
+//            }
+//            .addOnFailureListener {
+//                Log.d("Firebase", it.message.toString())
 //            }
 //    }
 

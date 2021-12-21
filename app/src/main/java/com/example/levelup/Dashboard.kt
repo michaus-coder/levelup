@@ -37,6 +37,10 @@ class Dashboard : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
+//        val temp_ID = intent.getStringExtra("ID")
+//        Log.d("ID", temp_ID.toString())
+//        intent.putExtra("ID",temp_ID.toString())
+
         readData()
         TampilkanData()
 
