@@ -157,7 +157,7 @@ class SignUpActivity : AppCompatActivity() {
                                         uid = profile.uid
                                     }
                                 }
-                                val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri)
+                                val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri, Calendar.getInstance().get(Calendar.YEAR).toString())
                                 db.collection("userdata")
                                     .document(uid)
                                     .set(newUser)
@@ -239,7 +239,7 @@ class SignUpActivity : AppCompatActivity() {
                                                 uid = profile.uid
                                             }
                                         }
-                                        val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri.toString())
+                                        val newUser : User = User(uid, etName.text.toString(), etEmail.text.toString(), etPhone.text.toString(), etPassword.text.toString(), etBirthdate.text.toString(), downloadUri.toString(), Calendar.getInstance().get(Calendar.YEAR).toString())
                                         db.collection("userdata")
                                             .document(uid)
                                             .set(newUser)
