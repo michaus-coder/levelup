@@ -21,14 +21,15 @@
 
     <ImageButton
         android:id="@+id/btnNotification"
-        android:layout_width="40sp"
-        android:layout_height="40sp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:background="@null"
         android:src="@drawable/ic_notification_svgrepo_com"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageProfile"

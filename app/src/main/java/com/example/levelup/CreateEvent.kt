@@ -8,8 +8,6 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -25,8 +23,6 @@ class CreateEvent : AppCompatActivity() {
     lateinit var full_date : String
     lateinit var full_time : String
 
-    //private var auth : FirebaseAuth = Firebase.auth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +37,8 @@ class CreateEvent : AppCompatActivity() {
         val _et_create_event_link = findViewById<EditText>(R.id.et_create_event_link)
         val _et_create_event_price = findViewById<EditText>(R.id.et_create_event_price)
         val _et_create_event_age = findViewById<EditText>(R.id.et_create_event_age)
-        val _et_create_event_location = findViewById<EditText>(R.id.et_create_event_location)
         val _spinner_create_event = findViewById<Spinner>(R.id.spinner_create_event)
         val _btn_create_event_submit = findViewById<Button>(R.id.btn_create_event_submit)
-
 
         _date = DatePicker(this)
         _time = TimePicker(this)
@@ -105,14 +99,6 @@ class CreateEvent : AppCompatActivity() {
 
         _btn_create_event_submit.setOnClickListener {
 
-//            var uid : String = ""
-//            val user = auth.currentUser
-//            user?.let {
-//                for (profile in it.providerData) {
-//                    uid = profile.uid
-//                }
-//            }
-
             val dataBaru = CreateEventData(
                 UUID.randomUUID().toString(),
                 _et_create_event_title.text.toString(),
@@ -120,10 +106,9 @@ class CreateEvent : AppCompatActivity() {
                 full_time,
                 _et_create_event_desc.text.toString(),
                 _et_create_event_link.text.toString(),
-                _spinner_create_event.selectedItem.toString(),
+                _spinner_create_event.textAlignment.toString(),
                 _et_create_event_price.text.toString(),
-                _et_create_event_age.text.toString(),
-                _et_create_event_location.text.toString()
+                _et_create_event_age.text.toString()
             )
 
             db.collection("createEventData").document(dataBaru.ID)
@@ -157,6 +142,6 @@ class CreateEvent : AppCompatActivity() {
         }
         //End of spinner
 
-    }
 
+    }
 }
