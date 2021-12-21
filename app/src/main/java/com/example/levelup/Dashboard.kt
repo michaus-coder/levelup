@@ -57,30 +57,23 @@ class Dashboard : AppCompatActivity() {
 
         adapterZ.setOnItemClickCallback(object : adapterDashboard.OnItemClickCallback {
             override fun onItemClicked(data: CreateEventData) {
-
                 val _btn_delete_event = findViewById<Button>(R.id.btn_delete_dashboard)
-
-//                _btn_delete_event.setOnClickListener {
-//
-//                }
-
             }
 
-//            override fun delDataDatabase(position: Int, hapusData: CreateEventData ) {
-//                HapusDataFirebase(db, hapusData.ID)
+//            override fun delData(position: Int) {
+//
 //            }
 
-            override fun delData(pos: Int) {
+            override fun delDataDatabase(position: Int, kirimData: CreateEventData) {
                 AlertDialog.Builder(this@Dashboard)
                     .setTitle("HAPUS DATA")
-                    .setMessage("APAKAH BENAR DATA " + ID[pos] + " akan dihapus ?")
+                    .setMessage("APAKAH BENAR DATA " + dataArrDashboard[position].ID + " akan dihapus ?")
                     .setPositiveButton(
                         "HAPUS",
                         DialogInterface.OnClickListener { dialog, which ->
                             //buat remove
-                            dataArrDashboard.clear()
-                            HapusDataFirebase()
-                            TampilkanData()
+                            Log.d("MASUK", dataArrDashboard[position].toString())
+                            HapusDataFirebase(db, dataArrDashboard[position].ID)
                         })
                     .setNegativeButton(
                         "BATAL",
@@ -93,7 +86,12 @@ class Dashboard : AppCompatActivity() {
                         })
                     .show()
             }
+
+
         }) //end Callback
+
+
+
 
 
     }
@@ -104,7 +102,7 @@ class Dashboard : AppCompatActivity() {
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
-                        document.data.get("ID").toString(),
+                        document.data.get("id").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),
                         document.data.get("time").toString(),
@@ -116,6 +114,7 @@ class Dashboard : AppCompatActivity() {
                         document.data.get("location").toString() )
                     dataArrDashboard.add(dataBaruDashboard)
                 }
+                TampilkanData()
                 _rv_dashboard.adapter?.notifyDataSetChanged()
             }
             .addOnFailureListener {
@@ -123,50 +122,19 @@ class Dashboard : AppCompatActivity() {
             }
     }
 
-    fun HapusDataFirebase() {
-        db.collection("createEventData").document("4f3ca82b-f2fa-4528-9825-0ef0e2e40341")
+    fun HapusDataFirebase(db : FirebaseFirestore, ID: String) {
+        db.collection("createEventData").document(ID)
             .delete()
             .addOnSuccessListener {
+                dataArrDashboard.clear()
                 readData()
+                //Log.d("MASUK", ID)
             }
             .addOnFailureListener {
                 Log.d("Firebase", it.message.toString())
             }
     }
 
-
-
-
-//    private fun TambahDataFirebase() {
-//        for (position in _judul.indices) {
-//            val data = dcNotes(
-//                _judul[position],
-//                _penjelasan[position]
-//            )
-//            db.collection("tbFirebase").document(_judul[position])
-//                .set(data)
-//            arNotes.add(data)
-//        }
-//    }
-
-
-//    fun HapusDataFirebase() {
-//        db.collection("createEventData").document(this.toString())
-//            .delete()
-//            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
-//            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
-//    }
-
-//    fun deleteFirebase() {
-//        db.collection("createEventData").document()
-//            .delete()
-//            .addOnSuccessListener {
-//                readData()
-//            }
-//            .addOnFailureListener {
-//                Log.d("Firebase", it.message.toString())
-//            }
-//    }
 
 }
 
