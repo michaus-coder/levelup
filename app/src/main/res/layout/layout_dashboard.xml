@@ -14,13 +14,13 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            app:cardCornerRadius="20dp"
             android:backgroundTint="#24BED0"
+            app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,40 +31,44 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tv_dashboard_atas"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_dashboard_judul"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:text="Skripsi 101"
                     android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_dashboard_bawah"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Workshop Skripsi"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/tv_dashboard_atas"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_dashboard_atas" />
-
                 <Button
-                    android:id="@+id/btn_action_dashboard"
+                    android:id="@+id/btn_edit_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="19dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="21dp"
                     android:backgroundTint="#FCCB63"
-                    android:text="Action"
+                    android:text="Edit"
+                    android:textColor="#7030B5"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_delete_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#FCCB63"
+                    android:text="Delete"
                     android:textColor="#7030B5"
                     android:textSize="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

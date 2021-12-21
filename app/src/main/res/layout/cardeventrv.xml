@@ -13,7 +13,6 @@
         android:layout_marginBottom="16dp"
         app:cardBackgroundColor="@color/lv_yellow"
         app:cardCornerRadius="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -53,7 +52,7 @@
             app:cardCornerRadius="5dp">
 
             <TextView
-                android:id="@+id/dateEvents"
+                android:id="@+id/dateEvent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"

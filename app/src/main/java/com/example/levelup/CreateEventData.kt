@@ -1,6 +1,7 @@
 package com.example.levelup
 
 data class CreateEventData(
+    var ID : String,
     var title : String,
     var date : String,
     var time : String,
@@ -8,5 +9,6 @@ data class CreateEventData(
     var link : String,
     var category : String,
     var price : String,
-    var age : String
+    var age : String,
+    var location : String
 )

@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 class CreateEvent : AppCompatActivity() {
     lateinit var db : FirebaseFirestore
@@ -36,6 +37,7 @@ class CreateEvent : AppCompatActivity() {
         val _et_create_event_link = findViewById<EditText>(R.id.et_create_event_link)
         val _et_create_event_price = findViewById<EditText>(R.id.et_create_event_price)
         val _et_create_event_age = findViewById<EditText>(R.id.et_create_event_age)
+        val _et_create_event_location = findViewById<EditText>(R.id.et_create_event_location)
         val _spinner_create_event = findViewById<Spinner>(R.id.spinner_create_event)
         val _btn_create_event_submit = findViewById<Button>(R.id.btn_create_event_submit)
 
@@ -98,28 +100,30 @@ class CreateEvent : AppCompatActivity() {
 
         _btn_create_event_submit.setOnClickListener {
 
-//            val dataBaru = CreateEventData(
-//                _et_create_event_title.text.toString(),
-//                full_date,
-//                full_time,
-//                _et_create_event_desc.text.toString(),
-//                _et_create_event_link.text.toString(),
-//                _spinner_create_event.textAlignment.toString(),
-//                _et_create_event_price.text.toString(),
-//                _et_create_event_age.text.toString()
-//            )
+            val dataBaru = CreateEventData(
+                UUID.randomUUID().toString(),
+                _et_create_event_title.text.toString(),
+                full_date,
+                full_time,
+                _et_create_event_desc.text.toString(),
+                _et_create_event_link.text.toString(),
+                _spinner_create_event.textAlignment.toString(),
+                _et_create_event_price.text.toString(),
+                _et_create_event_age.text.toString(),
+                _et_create_event_location.toString()
+            )
 
-//            db.collection("createEventData")
-//                .add(dataBaru)
-//                .addOnSuccessListener {
-//                    Log.d("Firebase", "Simpan Data Berhasil")
-//                }
-//                .addOnFailureListener {
-//                    Log.d("Firebase", it.message.toString())
-//                }
-//
-//            val intent = Intent(this@CreateEvent, Dashboard::class.java)
-//            startActivity(intent)
+            db.collection("createEventData").document(dataBaru.ID)
+                .set(dataBaru)
+                .addOnSuccessListener {
+                    Log.d("Firebase", "Simpan Data Berhasil")
+                }
+                .addOnFailureListener {
+                    Log.d("Firebase", it.message.toString())
+                }
+
+            val intent = Intent(this@CreateEvent, Dashboard::class.java)
+            startActivity(intent)
         }
 
         //Spinner

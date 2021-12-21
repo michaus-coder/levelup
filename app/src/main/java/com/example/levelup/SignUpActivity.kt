@@ -1,5 +1,6 @@
 package com.example.levelup
 
+import android.Manifest
 import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.ContentResolver
@@ -92,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        sp = getSharedPreferences("imageData", Context.MODE_PRIVATE)
+        sp = getSharedPreferences("imageData", MODE_PRIVATE)
         etProfile = findViewById<EditText>(R.id.etPhoto)
         val editor = sp.edit()
         editor.putString("imageData", "")
@@ -118,8 +119,8 @@ class SignUpActivity : AppCompatActivity() {
         }
         etProfile.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
-                    val permissions = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
                     requestPermissions(permissions, PERMISSION_CODE)
                 }else {
                     chooseImageGallery()
