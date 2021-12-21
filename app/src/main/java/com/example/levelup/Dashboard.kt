@@ -60,19 +60,16 @@ class Dashboard : AppCompatActivity() {
                 val _btn_delete_event = findViewById<Button>(R.id.btn_delete_dashboard)
             }
 
-//            override fun delData(position: Int) {
-//
-//            }
 
             override fun delDataDatabase(position: Int, kirimData: CreateEventData) {
                 AlertDialog.Builder(this@Dashboard)
                     .setTitle("HAPUS DATA")
-                    .setMessage("APAKAH BENAR DATA " + dataArrDashboard[position].ID + " akan dihapus ?")
+                    .setMessage("Apakah benar data " + "'" + dataArrDashboard[position].title + "'" + " akan DIHAPUS ?")
                     .setPositiveButton(
                         "HAPUS",
                         DialogInterface.OnClickListener { dialog, which ->
                             //buat remove
-                            Log.d("MASUK", dataArrDashboard[position].toString())
+                            //Log.d("MASUK", dataArrDashboard[position].toString())
                             HapusDataFirebase(db, dataArrDashboard[position].ID)
                         })
                     .setNegativeButton(
@@ -87,11 +84,32 @@ class Dashboard : AppCompatActivity() {
                     .show()
             }
 
+            override fun editDataDatabse(position: Int, kirimDataEdit: CreateEventData) {
+                AlertDialog.Builder(this@Dashboard)
+                    .setTitle("EDIT DATA")
+                    .setMessage("Apakah benar data " + "'" + dataArrDashboard[position].title + "'" + " akan di EDIT ?")
+                    .setPositiveButton(
+                        "EDIT",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            //buat edit
+                            //Log.d("MASUK", dataArrDashboard[position].toString())
+                            val intent_d = Intent(this@Dashboard, EditEvent::class.java)
+                            startActivity(intent_d)
+                        })
+                    .setNegativeButton(
+                        "BATAL",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            Toast.makeText(
+                                this@Dashboard,
+                                "DATA BATAL DIEDIT",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        })
+                    .show()
+            }
+
 
         }) //end Callback
-
-
-
 
 
     }

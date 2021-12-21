@@ -21,8 +21,8 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
 
     interface OnItemClickCallback {
         fun onItemClicked(data : CreateEventData)
-//        fun delData(position: Int)
         fun delDataDatabase(position: Int, kirimData : CreateEventData)
+        fun editDataDatabse(position: Int, kirimDataEdit : CreateEventData)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -55,6 +55,11 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
         //Firebase Delete
         holder._btn_delete_dashboard.setOnClickListener {
             onItemClickCallback.delDataDatabase(position, listDashboardData[position])
+        }
+
+        //Firebase Edit
+        holder._btn_edit_dashboard.setOnClickListener {
+            onItemClickCallback.editDataDatabse(position, listDashboardData[position])
         }
 
     }

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 
 class EditEvent : AppCompatActivity() {
+    var dataArrDashboard : ArrayList<CreateEventData> = ArrayList<CreateEventData>()
+
     lateinit var db : FirebaseFirestore
     lateinit var _time : TimePicker
     lateinit var _date : DatePicker
@@ -123,25 +125,31 @@ class EditEvent : AppCompatActivity() {
 
     } // end onCreate
 
-//    fun readData() {
-//        db.collection("createEventData").get()
-//            .addOnSuccessListener { result ->
-//                for (document in result) {
-//                    val dataEdit = CreateEventData(
-//                        document.data.get("title").toString(),
-//                        document.data.get("date").toString(),
-//                        document.data.get("time").toString(),
-//                        document.data.get("description").toString(),
-//                        document.data.get("link").toString(),
-//                        document.data.get("category").toString(),
-//                        document.data.get("price").toString(),
-//                        document.data.get("age").toString())
-//                }
-//            }
-//            .addOnFailureListener {
-//                Log.d("Firebase", it.message.toString())
-//            }
-//    }
+    fun readData() {
+        db.collection("createEventData").get()
+            .addOnSuccessListener { result ->
+                dataArrDashboard.clear()
+                for (document in result) {
+                    val dataBaruDashboard = CreateEventData(
+                        document.data.get("id").toString(),
+                        document.data.get("title").toString(),
+                        document.data.get("date").toString(),
+                        document.data.get("time").toString(),
+                        document.data.get("description").toString(),
+                        document.data.get("link").toString(),
+                        document.data.get("category").toString(),
+                        document.data.get("price").toString(),
+                        document.data.get("age").toString(),
+                        document.data.get("location").toString() )
+                    dataArrDashboard.add(dataBaruDashboard)
+                }
+                //TampilkanData()
+                //_rv_dashboard.adapter?.notifyDataSetChanged()
+            }
+            .addOnFailureListener {
+                Log.d("Firebase", it.message.toString())
+            }
+    }
 
 //    fun readData() {
 //        val docref = db.collection("createEventData").document("x5UCNiqPRvJNKWm90xle")
