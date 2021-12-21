@@ -98,10 +98,10 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
             tvJoinedFrom.text = joined
             val context = this
             val imageRes = context.resources.getIdentifier(documentSnapshot.data?.get("profile").toString(), "drawable", context.packageName)
-            Picasso.with(context)
-                .load(documentSnapshot.data?.get("profile").toString())
-                .placeholder(R.drawable.profile)
-                .into(imageProfile)
+//            Picasso.with(context)
+//                .load(documentSnapshot.data?.get("profile").toString())
+//                .placeholder(R.drawable.profile)
+//                .into(imageProfile)
         }
     }
 

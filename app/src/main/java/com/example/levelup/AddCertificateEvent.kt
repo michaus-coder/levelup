@@ -168,7 +168,7 @@ class AddCertificateEvent : AppCompatActivity() {
                     }
                 }
             }else{
-
+                Toast.makeText(this, "Image not uploaded", Toast.LENGTH_SHORT).show()
             }
         }
 
