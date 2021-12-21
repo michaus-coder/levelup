@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 class CreateEvent : AppCompatActivity() {
     lateinit var db : FirebaseFirestore
@@ -113,6 +114,7 @@ class CreateEvent : AppCompatActivity() {
 //            }
 
             val dataBaru = CreateEventData(
+                UUID.randomUUID().toString(),
                 _et_create_event_title.text.toString(),
                 full_date,
                 full_time,
@@ -124,8 +126,8 @@ class CreateEvent : AppCompatActivity() {
                 _et_create_event_location.text.toString()
             )
 
-            db.collection("createEventData")
-                .add(dataBaru)
+            db.collection("createEventData").document(dataBaru.ID)
+                .set(dataBaru)
                 .addOnSuccessListener {
                     Log.d("Firebase", "Simpan Data Berhasil")
                 }

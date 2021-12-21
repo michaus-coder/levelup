@@ -3,12 +3,14 @@ package com.example.levelup
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build.ID
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -40,9 +42,10 @@ class Dashboard : AppCompatActivity() {
 
         val _btn_create_event = findViewById<Button>(R.id.btn_create_event)
         _btn_create_event.setOnClickListener {
-            val intent_d = Intent(this@Dashboard, EditEvent::class.java)
+            val intent_d = Intent(this@Dashboard, CreateEvent::class.java)
             startActivity(intent_d)
         }
+
 
     }
 
@@ -52,23 +55,46 @@ class Dashboard : AppCompatActivity() {
         val adapterZ = adapterDashboard(dataArrDashboard)
         _rv_dashboard.adapter = adapterZ
 
-//        val _btn_delete_dashboard = findViewById<Button>(R.id.btn_delete_dashboard)
-//        _btn_delete_dashboard.setOnClickListener {
-//            db.collection("createEventData").document("lEcRSSszX1fbbz0PJNPn")
-//                .delete()
-//                .addOnSuccessListener {
-//                    readData()
-//                }
-//                .addOnFailureListener {
-//                    Log.d("Firebase", it.message.toString())
-//                }
-//        }
+        adapterZ.setOnItemClickCallback(object : adapterDashboard.OnItemClickCallback {
+            override fun onItemClicked(data: CreateEventData) {
 
-//        val _btn_edit_dashboard = findViewById<Button>(R.id.btn_edit_dashboard)
-//        _btn_edit_dashboard.setOnClickListener {
-//            val intent_d = Intent(this@Dashboard, EditEvent::class.java)
-//            startActivity(intent_d)
-//        }
+                val _btn_delete_event = findViewById<Button>(R.id.btn_delete_dashboard)
+
+//                _btn_delete_event.setOnClickListener {
+//
+//                }
+
+            }
+
+//            override fun delDataDatabase(position: Int, hapusData: CreateEventData ) {
+//                HapusDataFirebase(db, hapusData.ID)
+//            }
+
+            override fun delData(pos: Int) {
+                AlertDialog.Builder(this@Dashboard)
+                    .setTitle("HAPUS DATA")
+                    .setMessage("APAKAH BENAR DATA " + ID[pos] + " akan dihapus ?")
+                    .setPositiveButton(
+                        "HAPUS",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            //buat remove
+                            dataArrDashboard.clear()
+                            HapusDataFirebase()
+                            TampilkanData()
+                        })
+                    .setNegativeButton(
+                        "BATAL",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            Toast.makeText(
+                                this@Dashboard,
+                                "DATA BATAL DIHAPUS",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        })
+                    .show()
+            }
+        }) //end Callback
+
 
     }
 
@@ -78,6 +104,7 @@ class Dashboard : AppCompatActivity() {
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
+                        document.data.get("ID").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),
                         document.data.get("time").toString(),
@@ -96,6 +123,19 @@ class Dashboard : AppCompatActivity() {
             }
     }
 
+    fun HapusDataFirebase() {
+        db.collection("createEventData").document("4f3ca82b-f2fa-4528-9825-0ef0e2e40341")
+            .delete()
+            .addOnSuccessListener {
+                readData()
+            }
+            .addOnFailureListener {
+                Log.d("Firebase", it.message.toString())
+            }
+    }
+
+
+
 
 //    private fun TambahDataFirebase() {
 //        for (position in _judul.indices) {
@@ -111,14 +151,14 @@ class Dashboard : AppCompatActivity() {
 
 
 //    fun HapusDataFirebase() {
-//        db.collection("cities").document()
+//        db.collection("createEventData").document(this.toString())
 //            .delete()
 //            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
 //            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
 //    }
 
-//    fun deleteFirebase(db : FirebaseFirestore, title: String) {
-//        db.collection("createEventData").document(title)
+//    fun deleteFirebase() {
+//        db.collection("createEventData").document()
 //            .delete()
 //            .addOnSuccessListener {
 //                readData()

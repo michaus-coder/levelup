@@ -17,21 +17,19 @@ import androidx.recyclerview.widget.RecyclerView
 class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>):
     RecyclerView.Adapter<adapterDashboard.ListViewHolder>(){
 
-//    private lateinit var onItemClickCallback : OnItemClickCallback
-//
-//    interface OnItemClickCallback {
-//        fun onItemClicked(data : CreateEventData)
-//        fun delData(position: Int)
-//
-//        //Firebase
-//        fun addtoDatabase(position: Int)
-//        //
-//        fun moveToEdit()
-//    }
-//
-//    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-//        this.onItemClickCallback = onItemClickCallback
-//    }
+    private lateinit var onItemClickCallback : OnItemClickCallback
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data : CreateEventData)
+        fun delData(position: Int)
+//        fun delDataDatabase(position: Int, kirimData : CreateEventData)
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    var removedPosition : Int ? = null
 
     inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var _tv_dashboard_judul : TextView = itemView.findViewById(R.id.tv_dashboard_judul)
@@ -48,13 +46,26 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
         var dataa = listDashboardData[position]
         holder._tv_dashboard_judul.setText(dataa.title)
 
-//        holder._btn_edit_dashboard.setOnClickListener {
-//
+        holder._btn_delete_dashboard.setOnClickListener {
+            listDashboardData.removeAt(position)
+            removedPosition = position
+//            onItemClickCallback.delDataDatabase(position, listDashboardData[position])
+            notifyDataSetChanged()
+        }
+
+//        holder._btn_delete_dashboard.setOnClickListener {
+//            onItemClickCallback.delDataDatabase(position, listDashboardData[position])
 //        }
+
     }
 
     override fun getItemCount(): Int {
         return listDashboardData.size
+    }
+
+    fun getRemoveItemPosition() : Int? {
+        var position = removedPosition
+        return position;
     }
 
 }
