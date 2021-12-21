@@ -22,7 +22,7 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryJoinedEvent"
+            android:name=".HistoryEvent"
             android:exported="true" />
         <activity
             android:name=".LaunchScreen2Activity"
