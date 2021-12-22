@@ -1,5 +1,6 @@
 package com.example.levelup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,7 @@ class Payment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
+        db = FirebaseFirestore.getInstance()
         _confirmPaymentBtn = findViewById(R.id.buttonPayment)
         TempPrice = intent.getStringExtra("price").toString()
         TempEventId = intent.getStringExtra("id_event").toString()
@@ -29,12 +31,14 @@ class Payment : AppCompatActivity() {
             val History = HistoryEventListItem(
                 dbRef.id,
                 TempEventId,
-                auth.currentUser
+                auth.currentUser!!?.email.toString()
 
             )
             dbRef.set(History)
                 .addOnSuccessListener {
                     Log.d("Firebase", "Transaction is successfully added")
+                    val intent = Intent(this@Payment, HistoryEvent::class.java)
+                    startActivity(intent)
                 }
                 .addOnFailureListener {
                     Log.d("Firebase", it.message.toString())
