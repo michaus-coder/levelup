@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -13,6 +14,7 @@ import com.google.firebase.ktx.Firebase
 class Payment : AppCompatActivity() {
     lateinit var db : FirebaseFirestore
     lateinit var _confirmPaymentBtn : Button
+    lateinit var _total : TextView
     private var auth : FirebaseAuth = Firebase.auth
     private lateinit var TempPrice : String
     private lateinit var TempEventId : String
@@ -22,7 +24,9 @@ class Payment : AppCompatActivity() {
         _confirmPaymentBtn = findViewById(R.id.buttonPayment)
         TempPrice = intent.getStringExtra("price").toString()
         TempEventId = intent.getStringExtra("id_event").toString()
+        _total = findViewById(R.id.totalPrice)
 
+        _total.setText(TempPrice)
 
         _confirmPaymentBtn.setOnClickListener{
             val dbRef = db.collection("history").document()
