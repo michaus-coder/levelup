@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -124,20 +125,7 @@ class CreateEvent : AppCompatActivity() {
                 }
 
             val intent = Intent(this@CreateEvent, Dashboard::class.java)
-            intent.putExtra("ID",dataBaru.ID)
             startActivity(intent)
-
-//            val intent = Intent(this@CreateEvent, Dashboard::class.java)
-//            val temp_id : String = dataBaru.ID
-//
-//            //Bundle
-//            val bundle = Bundle()
-//            bundle.putString("kirimID", temp_id)
-//
-//            //Add ke bundle
-//            intent.putExtra("kirimID", temp_id)
-//
-//            startActivity(intent)
 
         }
 
@@ -159,6 +147,6 @@ class CreateEvent : AppCompatActivity() {
         }
         //End of spinner
 
-
     }
+
 }

@@ -2,6 +2,7 @@ package com.example.levelup
 
 import android.content.ContentValues.TAG
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,6 +35,7 @@ class EditEvent : AppCompatActivity() {
     lateinit var _et_edit_event_location : EditText
     lateinit var _spinner_edit_event : Spinner
     lateinit var _btn_edit_event_submit : Button
+    lateinit var temp_id_terima : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +54,10 @@ class EditEvent : AppCompatActivity() {
         _spinner_edit_event = findViewById(R.id.spinner_edit_event)
         _btn_edit_event_submit = findViewById(R.id.btn_edit_event_submit)
 
-//        val temp_ID = intent.getStringExtra("ID temp")
-//        Log.d("ID temp", temp_ID.toString())
+        val temp_ID = intent.getStringExtra("ID Kirim")
+        Log.d("ID Kirim", temp_ID.toString())
 
-//        val bundle = intent.getBundleExtra("kirimID")
-//        val temp_id_terima : String = bundle.getString(bundle)
+        temp_id_terima = temp_ID.toString()
 
         readData()
         updateData()
@@ -135,6 +136,34 @@ class EditEvent : AppCompatActivity() {
         }
         //end spinner
 
+
+        _btn_edit_event_submit.setOnClickListener {
+                val docRef = db.collection("createEventData").document(temp_id_terima)
+                docRef.get().addOnSuccessListener {
+                    val newEditData = CreateEventData(
+                        temp_id_terima,
+                        _et_edit_event_title.text.toString(),
+                        full_date,
+                        full_time,
+                        _et_edit_event_desc.text.toString(),
+                        _et_edit_event_link.text.toString(),
+                        _spinner_edit_event.selectedItem.toString(),
+                        _et_edit_event_price.text.toString(),
+                        _et_edit_event_age.text.toString(),
+                        _et_edit_event_location.text.toString())
+
+                    db.collection("createEventData").document(temp_id_terima).set(newEditData)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Event edited successfully", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@EditEvent, Dashboard::class.java)
+                            startActivity(intent)
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this, "Error Edit Event: ${it.toString()}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+        }
+
     } // end onCreate
 
     fun readData() {
@@ -164,7 +193,7 @@ class EditEvent : AppCompatActivity() {
     }
 
     fun updateData(){
-        val docRef = db.collection("createEventData").document()
+        val docRef = db.collection("createEventData").document(temp_id_terima)
         docRef.get().addOnSuccessListener { documentSnapshot ->
             _et_edit_event_title.setText(documentSnapshot.data?.get("title").toString())
             _et_edit_event_desc.setText(documentSnapshot.data?.get("description").toString())

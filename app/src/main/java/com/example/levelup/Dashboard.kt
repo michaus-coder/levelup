@@ -37,9 +37,6 @@ class Dashboard : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-//        val temp_ID = intent.getStringExtra("ID")
-//        Log.d("ID", temp_ID.toString())
-//        intent.putExtra("ID",temp_ID.toString())
 
         readData()
         TampilkanData()
@@ -63,7 +60,6 @@ class Dashboard : AppCompatActivity() {
             override fun onItemClicked(data: CreateEventData) {
                 val _btn_delete_event = findViewById<Button>(R.id.btn_delete_dashboard)
             }
-
 
             override fun delDataDatabase(position: Int, kirimData: CreateEventData) {
                 AlertDialog.Builder(this@Dashboard)
@@ -98,6 +94,8 @@ class Dashboard : AppCompatActivity() {
                             //buat edit
                             //Log.d("MASUK", dataArrDashboard[position].toString())
                             val intent_d = Intent(this@Dashboard, EditEvent::class.java)
+                            intent_d.putExtra("ID Kirim",dataArrDashboard[position].ID)
+                            Log.d("ID Kirim", dataArrDashboard[position].ID.toString())
                             startActivity(intent_d)
                         })
                     .setNegativeButton(
