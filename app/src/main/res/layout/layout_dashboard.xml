@@ -32,11 +32,11 @@
 
                 <TextView
                     android:id="@+id/tv_dashboard_judul"
-                    android:layout_width="220dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="29dp"
+                    android:layout_marginBottom="52dp"
                     android:text="Skripsi 101"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -68,6 +68,21 @@
                     android:textSize="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_detail_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:backgroundTint="#FCCB63"
+                    android:text="Detail"
+                    android:textColor="#7030B5"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_edit_dashboard"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

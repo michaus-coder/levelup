@@ -11,10 +11,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,13 +35,18 @@ class Dashboard : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-
         readData()
         TampilkanData()
 
         val _btn_create_event = findViewById<Button>(R.id.btn_create_event)
         _btn_create_event.setOnClickListener {
             val intent_d = Intent(this@Dashboard, CreateEvent::class.java)
+            startActivity(intent_d)
+        }
+
+        val _btn_history_join_event = findViewById<ImageButton>(R.id.btn_history_join_event)
+        _btn_history_join_event.setOnClickListener {
+            val intent_d = Intent(this@Dashboard, HistoryEvent::class.java)
             startActivity(intent_d)
         }
 
@@ -111,9 +113,33 @@ class Dashboard : AppCompatActivity() {
                     .show()
             }
 
+            override fun detailDatabase(position: Int, kirimDataDetail: CreateEventData) {
+                AlertDialog.Builder(this@Dashboard)
+                    .setTitle("Show Detail DATA")
+                    //.setMessage("Apakah benar data " + "'" + dataArrDashboard[position].title + "'" + " akan di EDIT ?")
+                    .setPositiveButton(
+                        "GO TO DETAIL",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            //buat detail
+                            val intent_d = Intent(this@Dashboard, DetailEvent::class.java)
+                            intent_d.putExtra("ID Kirim",dataArrDashboard[position].ID)
+                            Log.d("ID Kirim", dataArrDashboard[position].ID.toString())
+                            startActivity(intent_d)
+                        })
+                    .setNegativeButton(
+                        "BATAL",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            Toast.makeText(
+                                this@Dashboard,
+                                "Cancel",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        })
+                    .show()
+            }
+
 
         }) //end Callback
-
 
     }
 
