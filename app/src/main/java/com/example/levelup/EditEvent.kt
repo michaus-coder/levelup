@@ -6,13 +6,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.view.autofill.AutofillValue
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
+import android.widget.Toast
+
+
+
 
 class EditEvent : AppCompatActivity() {
     var dataArrDashboard : ArrayList<CreateEventData> = ArrayList<CreateEventData>()
@@ -37,6 +43,7 @@ class EditEvent : AppCompatActivity() {
     lateinit var _btn_edit_event_submit : Button
     lateinit var temp_id_terima : String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_event)
@@ -54,12 +61,18 @@ class EditEvent : AppCompatActivity() {
         _spinner_edit_event = findViewById(R.id.spinner_edit_event)
         _btn_edit_event_submit = findViewById(R.id.btn_edit_event_submit)
 
+
         val temp_ID = intent.getStringExtra("ID Kirim")
         Log.d("ID Kirim", temp_ID.toString())
 
         temp_id_terima = temp_ID.toString()
 
+        val myToast = Toast.makeText(applicationContext,"Don't forget to recheck the CATEGORY!", Toast.LENGTH_LONG)
+        myToast.setGravity(Gravity.LEFT,160,0)
+
         readData()
+        myToast.show()
+        //Toast.makeText(this, "Don't forget to recheck the CATEGORY!", Toast.LENGTH_LONG).show()
         updateData()
 
         _date = DatePicker(this)
@@ -136,7 +149,6 @@ class EditEvent : AppCompatActivity() {
         }
         //end spinner
 
-
         _btn_edit_event_submit.setOnClickListener {
                 val docRef = db.collection("createEventData").document(temp_id_terima)
                 docRef.get().addOnSuccessListener {
@@ -203,6 +215,8 @@ class EditEvent : AppCompatActivity() {
             _et_edit_event_location.setText(documentSnapshot.data?.get("location").toString())
             _btn_edit_event_setDate.setText(documentSnapshot.data?.get("date").toString())
             _btn_edit_event_setTime.setText(documentSnapshot.data?.get("time").toString())
+            full_date = documentSnapshot.data?.get("date").toString()
+            full_time = documentSnapshot.data?.get("time").toString()
         }
     }
 

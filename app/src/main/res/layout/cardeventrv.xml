@@ -39,9 +39,9 @@
 
         <ImageView
             android:id="@+id/imgEvent"
-
             android:layout_width="match_parent"
-            android:layout_height="85dp" />
+            android:layout_height="85dp"
+            android:src="@drawable/level_up_logo" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
