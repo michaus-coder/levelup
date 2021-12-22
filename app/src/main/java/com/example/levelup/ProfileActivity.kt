@@ -168,7 +168,6 @@ class ProfileActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
             tvBirthdate.text = documentSnapshot.data?.get("birthdate").toString()
             val joined : String = "Joined From " + documentSnapshot.data?.get("yearJoined").toString()
             tvJoinedFrom.text = joined
-            val context = this
             Picasso.get().load(documentSnapshot.data?.get("profile").toString()).into(imageProfile)
         }
     }
