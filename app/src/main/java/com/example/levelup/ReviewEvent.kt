@@ -29,7 +29,6 @@ class ReviewEvent : AppCompatActivity() {
         }
 
     }
-
     
     private fun TambahData(){
         for(position in _namaEvent.indices){
