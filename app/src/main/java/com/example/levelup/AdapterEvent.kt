@@ -14,8 +14,7 @@ class AdapterEvent (
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun detailEvent()
-        fun joinEvent()
+        fun joinEvent(position: Int)
 
     }
 
@@ -29,7 +28,6 @@ class AdapterEvent (
         var _EventLocation: TextView = itemView.findViewById(R.id.locationEvent)
         var _EventTime:TextView = itemView.findViewById(R.id.timeEvent)
         var _EventPrice:TextView = itemView.findViewById(R.id.priceEvent)
-        var _BtnDetailEvent: CardView = itemView.findViewById(R.id.btnDetailEvent)
         var _BtnJoinEvent: CardView = itemView.findViewById(R.id.btnJoinEvent)
     }
 
@@ -52,12 +50,8 @@ class AdapterEvent (
         holder._EventPrice.setText(note.eventPrice)
 
 
-        holder._BtnDetailEvent.setOnClickListener {
-            onItemClickCallback.detailEvent()
-
-        }
         holder._BtnJoinEvent.setOnClickListener {
-            onItemClickCallback.joinEvent()
+            onItemClickCallback.joinEvent(position)
 
         }
 
