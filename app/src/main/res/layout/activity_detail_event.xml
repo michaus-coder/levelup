@@ -6,342 +6,309 @@
     android:layout_height="match_parent"
     tools:context=".DetailEvent">
 
-    <ScrollView
+    <TextView
+        android:id="@+id/judul_detail_event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#7030B5"
+        android:gravity="center"
+        android:text="Event Details"
+        android:textColor="#FCCB63"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/judul_detail_event"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#7030B5"
-                android:gravity="center"
-                android:text="Event Details"
-                android:textColor="#FCCB63"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/textview_8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Title"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/judul_detail_event" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Event Title"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textview_8" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Date"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_title" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_date"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Date"
-                android:textColor="@color/black"
-                android:background="@drawable/shape1"
-                android:textSize="20dp"
-                app:layout_constraintStart_toEndOf="@+id/textView15"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:gravity="center"
-                android:text="Time"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/tv_detailEvent_time"
-                app:layout_constraintStart_toEndOf="@+id/tv_detailEvent_date"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_time"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Time"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Description"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Description"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Link"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_desc" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_link"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Link"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Location"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_link" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Location"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Category"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_location" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:text="Category"
-                android:textColor="@color/black"
-                android:background="@drawable/shape1"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/textview_8"
-                app:layout_constraintStart_toStartOf="@+id/textview_8"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Price"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
-
-
-            <TextView
-                android:id="@+id/tv_detailEvent_price"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Price"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintStart_toEndOf="@+id/textView22"
-                app:layout_constraintTop_toTopOf="@+id/textView22" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Age"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/tv_detailEvent_price"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
-
-            <TextView
-                android:id="@+id/tv_detailEvent_age"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Age"
-                android:background="@drawable/shape1"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
-
-            <Button
-                android:id="@+id/btn_detail_event_certificate"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="38dp"
-                android:layout_marginBottom="80dp"
-                android:backgroundTint="#7030B5"
-                android:text="Generate Certificate"
-                android:textColor="@color/lv_yellow"
-                app:cornerRadius="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_price" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="38dp"
-                android:layout_marginBottom="80dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22"
-                app:srcCompat="@drawable/certificate" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <TextView
+        android:id="@+id/textview_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@color/lv_purple"
-        app:itemIconTint="@color/lv_yellow"
-        app:itemTextColor="@color/lv_yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:layout_constraintTop_toBottomOf="@+id/judul_detail_event" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Event Title"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textview_8" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_title" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_date"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:background="@drawable/shape1"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:text="Time"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tv_detailEvent_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_detailEvent_date"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_time"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Time"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Description"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Link"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_desc" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Link"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Location"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_link" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Location"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Category"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_location" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Category"
+        android:textColor="@color/black"
+        android:background="@drawable/shape1"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_8"
+        app:layout_constraintStart_toStartOf="@+id/textview_8"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Price"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
+
+
+    <TextView
+        android:id="@+id/tv_detailEvent_price"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Price"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Age"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_detailEvent_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
+
+    <TextView
+        android:id="@+id/tv_detailEvent_age"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Age"
+        android:background="@drawable/shape1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_category" />
+
+    <Button
+        android:id="@+id/btn_detail_event_certificate"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#7030B5"
+        android:text="Generate Certificate"
+        android:textColor="@color/lv_yellow"
+        app:cornerRadius="20dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailEvent_price" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22"
+        app:srcCompat="@drawable/certificate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

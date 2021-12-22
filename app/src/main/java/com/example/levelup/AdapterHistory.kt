@@ -40,9 +40,9 @@ class AdapterHistory (
 
     override fun onBindViewHolder(holder: AdapterHistory.ListViewHolder, position: Int) {
         var note = listHistory[position]
-        holder._EventName.setText(note.HistoryeventName)
-        holder._EventLocation.setText(note.HistoryeventLocation)
-        holder._EventDate.setText(note.HistoryeventDate)
+//        holder._EventName.setText(note.HistoryeventName)
+//        holder._EventLocation.setText(note.HistoryeventLocation)
+//        holder._EventDate.setText(note.HistoryeventDate)
 
         holder._BtnReview.setOnClickListener {
             onItemClickCallback.review(position)

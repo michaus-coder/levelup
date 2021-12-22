@@ -15,21 +15,29 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
-class Dashboard : AppCompatActivity() {
+class Dashboard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var db : FirebaseFirestore
     private lateinit var _rv_dashboard : RecyclerView
     var dataArrDashboard : ArrayList<CreateEventData> = ArrayList<CreateEventData>()
 
+    lateinit var navigationView : BottomNavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
+        navigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navigationView.setOnNavigationItemSelectedListener(this)
+        navigationView.selectedItemId = R.id.dashboard
 
         _rv_dashboard = findViewById(R.id.rv_dashboard)
 
@@ -180,6 +188,29 @@ class Dashboard : AppCompatActivity() {
             .addOnFailureListener {
                 Log.d("Firebase", it.message.toString())
             }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.home -> {
+                val intent = Intent(this@Dashboard, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.profile -> {
+                val intent = Intent(this@Dashboard, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.events -> {
+                val intent = Intent(this@Dashboard, EventsEvent::class.java)
+                startActivity(intent)
+
+            }
+            R.id.dashboard -> {
+
+            }
+            else -> return false
+        }
+        return true
     }
 
 
