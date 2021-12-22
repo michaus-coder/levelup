@@ -41,6 +41,7 @@ class EditEvent : AppCompatActivity() {
     lateinit var _et_edit_event_location : EditText
     lateinit var _spinner_edit_event : Spinner
     lateinit var _btn_edit_event_submit : Button
+
     lateinit var temp_id_terima : String
 
 
