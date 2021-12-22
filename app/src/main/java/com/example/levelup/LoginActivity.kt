@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         tvRegister.setTextColor(Color.BLUE)
 
         if (auth.currentUser != null){
-            val intent = Intent(this@LoginActivity, LoginActivity::class.java)
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
         }
 
