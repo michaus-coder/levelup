@@ -237,7 +237,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="100dp"
-                android:layout_marginBottom="130dp"
+                android:layout_marginBottom="80dp"
                 android:backgroundTint="#7030B5"
                 android:text="Submit"
                 android:textColor="#FCCB63"
@@ -276,21 +276,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@color/lv_purple"
-        app:itemIconTint="@color/lv_yellow"
-        app:itemTextColor="@color/lv_yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,23 +20,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
-                android:text="Hello, "
+                android:text="Dashboard"
                 android:textColor="#7030B5"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_dashboard_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Name"
-                android:textColor="#7030B5"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/judul_dashboard"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
