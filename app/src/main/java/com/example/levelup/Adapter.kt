@@ -23,6 +23,7 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
         fun onItemClicked(data : CreateEventData)
         fun delDataDatabase(position: Int, kirimData : CreateEventData)
         fun editDataDatabse(position: Int, kirimDataEdit : CreateEventData)
+        fun detailDatabase(position: Int, kirimDataDetail : CreateEventData)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -35,6 +36,7 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
         var _tv_dashboard_judul : TextView = itemView.findViewById(R.id.tv_dashboard_judul)
         var _btn_edit_dashboard : Button = itemView.findViewById(R.id.btn_edit_dashboard)
         var _btn_delete_dashboard : Button = itemView.findViewById(R.id.btn_delete_dashboard)
+        var _btn_detail_dashboard : Button = itemView.findViewById(R.id.btn_detail_dashboard)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -60,6 +62,11 @@ class adapterDashboard(private val listDashboardData: ArrayList<CreateEventData>
         //Firebase Edit
         holder._btn_edit_dashboard.setOnClickListener {
             onItemClickCallback.editDataDatabse(position, listDashboardData[position])
+        }
+
+        //Detail
+        holder._btn_detail_dashboard.setOnClickListener {
+            onItemClickCallback.detailDatabase(position, listDashboardData[position])
         }
 
     }
