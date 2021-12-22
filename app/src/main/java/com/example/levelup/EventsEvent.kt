@@ -4,9 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class EventsEvent : AppCompatActivity() {
     private lateinit var _adapter : AdapterEvent
@@ -18,7 +21,7 @@ class EventsEvent : AppCompatActivity() {
     private  var _dateEvent : MutableList<String> = emptyList<String>().toMutableList()
     private  var _timeEvent : MutableList<String> = emptyList<String>().toMutableList()
     private  var _priceEvent : MutableList<String> = emptyList<String>().toMutableList()
-
+    private var auth : FirebaseAuth = Firebase.auth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_events_event)
@@ -27,7 +30,7 @@ class EventsEvent : AppCompatActivity() {
         TampilkanData()
     }
     private fun TampilkanData(){
-        _rvEvents.layoutManager = LinearLayoutManager(this )
+        _rvEvents.layoutManager = GridLayoutManager(this,2 )
         val adapterP = AdapterEvent(_arEvents)
         _rvEvents.adapter = adapterP
 
@@ -51,27 +54,11 @@ class EventsEvent : AppCompatActivity() {
             }
 
         adapterP.setItemClickCallback(object : AdapterEvent.OnItemClickCallback{
-            override fun detailEvent() {
-                val intent = Intent(this@EventsEvent,DetailEvent::class.java)
-                startActivity(intent)
-            }
 
-            override fun joinEvent() {
-//                val dbRef = db.collection("history").document()
-//                val History = HistoryEventListItem(
-//                    dbRef.id,
-//                    _namaEvent.toString(),
-//                    _locationEvent.toString(),
-//                    _dateEvent.toString(),
-////                    id_user = nanti id user disini
-//                )
-//                dbRef.set(History)
-//                    .addOnSuccessListener {
-//                        Log.d("Firebase", "Transaction is successfully added")
-//                    }
-//                    .addOnFailureListener {
-//                        Log.d("Firebase", it.message.toString())
-//                    }
+            override fun joinEvent(posisition : Int) {
+                val intent = Intent(this@EventsEvent,Payment::class.java)
+                intent.putExtra("price", _arEvents[posisition].eventPrice)
+                intent.putExtra("id_event", _arEvents[posisition].id)
             }
 
         })

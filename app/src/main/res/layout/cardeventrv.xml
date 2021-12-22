@@ -20,7 +20,7 @@
             android:id="@+id/btnJoinEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="72dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="134dp"
             app:cardBackgroundColor="@color/lv_purple">
 
@@ -117,27 +117,6 @@
                 android:text="Rp. 10.000"
                 android:textColor="@color/white"
                 android:textSize="6sp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/btnDetailEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="134dp"
-            app:cardBackgroundColor="@color/lv_purple">
-
-            <TextView
-                android:id="@+id/textView9151"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="4dp"
-                android:text="Details"
-                android:textColor="@color/white"
-                android:textSize="8sp" />
         </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
