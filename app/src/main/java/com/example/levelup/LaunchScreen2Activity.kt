@@ -13,7 +13,7 @@ class LaunchScreen2Activity : AppCompatActivity() {
         val btnGetStarted = findViewById<Button>(R.id.btnGetStarted)
 
         btnGetStarted.setOnClickListener {
-            val intent = Intent(this@LaunchScreen2Activity, MainActivity::class.java)
+            val intent = Intent(this@LaunchScreen2Activity, LoginActivity::class.java)
             startActivity(intent)
         }
     }
