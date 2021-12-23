@@ -43,7 +43,7 @@ class HistoryEvent : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         for (historyE in arHis){
             db.collection("createEventData").document(historyE.id_event).get()
                 .addOnSuccessListener {
-                    val eventD = CreateEventData(it.data?.get("id").toString(), it.data?.get("title").toString(), it.data?.get("date").toString(), it.data?.get("time").toString(), it.data?.get("description").toString(), it.data?.get("link").toString(), it.data?.get("category").toString(), it.data?.get("price").toString(), it.data?.get("age").toString(), it.data?.get("location").toString())
+                    val eventD = CreateEventData(auth.currentUser?.email.toString(), it.data?.get("id").toString(), it.data?.get("title").toString(), it.data?.get("date").toString(), it.data?.get("time").toString(), it.data?.get("description").toString(), it.data?.get("link").toString(), it.data?.get("category").toString(), it.data?.get("price").toString(), it.data?.get("age").toString(), it.data?.get("location").toString())
                     _arHistoryEvent.add(eventD)
                     TampilkanData()
 
