@@ -49,12 +49,14 @@
 
         <EditText
             android:id="@+id/editText"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="256dp"
             android:ems="10"
-            android:hint="Upload FIle"
-            android:inputType="textPersonName"
+            android:hint="Upload File"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

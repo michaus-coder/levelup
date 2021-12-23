@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterHistory (
@@ -14,6 +15,7 @@ class AdapterHistory (
 
     interface OnItemClickCallback {
         fun review(position: Int)
+        fun certificate(position: Int)
     }
 
     fun setItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -24,7 +26,8 @@ class AdapterHistory (
         var _EventName: TextView = itemView.findViewById(R.id.HisttoryEventName)
         var _EventLocation: TextView = itemView.findViewById(R.id.HistoryEventLocation)
         var _EventDate: TextView = itemView.findViewById(R.id.HistoryEventDate)
-        var _BtnReview: Button = itemView.findViewById(R.id.ReviewBtn)
+        var _BtnReview: CardView = itemView.findViewById(R.id.ReviewBtn)
+        var _BtnCertificate : CardView = itemView.findViewById(R.id.certificateBtn)
     }
 
 
@@ -46,7 +49,10 @@ class AdapterHistory (
 
         holder._BtnReview.setOnClickListener {
             onItemClickCallback.review(position)
+        }
 
+        holder._BtnCertificate.setOnClickListener {
+            onItemClickCallback.certificate(position)
         }
 
     }

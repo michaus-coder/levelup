@@ -1,6 +1,6 @@
 package com.example.levelup
 
 data class ReviewEventItem(
-    var eventName : String,
+    var eventID : String,
     var eventReview : String
 )

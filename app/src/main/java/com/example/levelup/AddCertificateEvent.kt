@@ -14,12 +14,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.OpenableColumns
 import android.util.Log
+import android.view.MenuItem
 import android.webkit.MimeTypeMap
 import android.widget.EditText
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -27,12 +29,14 @@ import com.google.firebase.storage.UploadTask
 import java.io.File
 import java.util.*
 
-class AddCertificateEvent : AppCompatActivity() {
+class AddCertificateEvent : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     lateinit var _inputFileName : EditText
     lateinit var _uploadBtn : CardView
-    lateinit var dbRefrence : FirebaseFirestore
+    lateinit var db : FirebaseFirestore
     var storage = FirebaseStorage.getInstance()
     lateinit var sp : SharedPreferences
+    lateinit var navigationView : BottomNavigationView
+
     // companion object
     companion object{
         const val IMAGE_CHOOSE = 1000
@@ -86,15 +90,17 @@ class AddCertificateEvent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_certificate_event)
+        navigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navigationView.setOnNavigationItemSelectedListener(this)
+        navigationView.selectedItemId = R.id.dashboard
         sp = getSharedPreferences("imageData", MODE_PRIVATE)
+        db = FirebaseFirestore.getInstance()
         val editor = sp.edit()
         editor.putString("imageData", "")
         editor.apply()
+        val id_event = intent.getStringExtra("id_event")
         _inputFileName = findViewById(R.id.editText)
         _uploadBtn = findViewById(R.id.uploadCertifBtn)
-//
-//        storageRefrence = FirebaseFirestore.getInstance().getRefrence()
-//        dbRefrence = FirebaseDatabase.getInstance().getRefrence()
         _inputFileName.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
@@ -163,6 +169,15 @@ class AddCertificateEvent : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val downloadUri = task.result
                         //TAMBAHKAN FUNCTION BUAT UPLOAD KE FIRESTORE DISINI KALAU MAU
+                        val cert = eventCertificateData(id_event.toString(), downloadUri.toString())
+                        db.collection("eventCertificates").document(cert.id_event).set(cert)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Certificate uploaded successfully", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                            .addOnFailureListener {
+                                Log.d("error", it.toString())
+                            }
                     } else {
                         Log.d("Status", task.toString())
                     }
@@ -196,7 +211,6 @@ class AddCertificateEvent : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        Log.d("Image", data.toString())
         if (data != null) {
             data.data?.also { uri ->
                 val editor = sp.edit()
@@ -205,5 +219,30 @@ class AddCertificateEvent : AppCompatActivity() {
                 getFileName(uri)?.let { _inputFileName.setText(it.toString()) }
             }
         }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.home -> {
+                val intent = Intent(this@AddCertificateEvent, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.profile -> {
+                val intent = Intent(this@AddCertificateEvent, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.events -> {
+                val intent = Intent(this@AddCertificateEvent, EventsEvent::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.dashboard -> {
+                true
+            }
+            else -> false
+        }
+        return true
     }
 }

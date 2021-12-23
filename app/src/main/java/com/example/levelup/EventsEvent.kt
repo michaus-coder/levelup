@@ -4,14 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
-class EventsEvent : AppCompatActivity() {
+class EventsEvent : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var _adapter : AdapterEvent
     private lateinit var _rvEvents : RecyclerView
     lateinit var db : FirebaseFirestore
@@ -22,9 +24,14 @@ class EventsEvent : AppCompatActivity() {
     private  var _timeEvent : MutableList<String> = emptyList<String>().toMutableList()
     private  var _priceEvent : MutableList<String> = emptyList<String>().toMutableList()
     private var auth : FirebaseAuth = Firebase.auth
+    lateinit var navigationView : BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_events_event)
+        navigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navigationView.setOnNavigationItemSelectedListener(this)
+        navigationView.selectedItemId = R.id.events
         db = FirebaseFirestore.getInstance()
         _rvEvents = findViewById(R.id.rvEvents)
         TampilkanData()
@@ -63,6 +70,30 @@ class EventsEvent : AppCompatActivity() {
             }
 
         })
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.home -> {
+                val intent = Intent(this@EventsEvent, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.profile -> {
+                val intent = Intent(this@EventsEvent, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.events -> {
+                true
+            }
+            R.id.dashboard -> {
+                val intent = Intent(this@EventsEvent, Dashboard::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> false
+        }
+        return true
     }
 }
 

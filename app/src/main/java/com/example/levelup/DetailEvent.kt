@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailEvent : AppCompatActivity() {
@@ -31,7 +32,6 @@ class DetailEvent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_event)
-
         _tv_detailEvent_title = findViewById(R.id.tv_detailEvent_title)
         _tv_detailEvent_time = findViewById(R.id.tv_detailEvent_time)
         _tv_detailEvent_date = findViewById(R.id.tv_detailEvent_date)
@@ -56,6 +56,7 @@ class DetailEvent : AppCompatActivity() {
 
         _btn_detail_event_certificate.setOnClickListener {
             val intent_de = Intent(this@DetailEvent, AddCertificateEvent::class.java)
+            intent_de.putExtra("id_event", temp_ID)
             startActivity(intent_de)
         }
 
@@ -102,4 +103,6 @@ class DetailEvent : AppCompatActivity() {
             _tv_detailEvent_age.setText(documentSnapshot.data?.get("age").toString())
         }
     }
+
+
 }
