@@ -28,7 +28,7 @@ class Payment : AppCompatActivity() {
         TempEventId = intent.getStringExtra("id_event").toString()
         _total = findViewById(R.id.totalPrice)
 
-        _total.setText(TempPrice)
+        _total.setText("Rp ." + TempPrice)
 
         _confirmPaymentBtn.setOnClickListener{
             val dbRef = db.collection("history").document()
