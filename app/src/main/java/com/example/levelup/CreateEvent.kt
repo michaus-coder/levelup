@@ -136,7 +136,7 @@ class CreateEvent : AppCompatActivity() {
         }
 
         //Spinner
-        val spinner_data = arrayOf("Birthday", "Meeting", "Economy", "Art", "Law", "Psychlogy", "Science", "Sport", "Music", "Politics", "Acedemic", "Health", "Technology", "Business")
+        val spinner_data = arrayOf("Birthday", "Meeting", "Economy", "Art", "Law", "Psychology", "Science", "Sport", "Music", "Politics", "Acedemic", "Health", "Technology", "Business")
         val arrayAdapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,spinner_data)
         _spinner_create_event.adapter = arrayAdapter
         _spinner_create_event.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
