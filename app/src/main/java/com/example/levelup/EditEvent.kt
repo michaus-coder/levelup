@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
 import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 
 class EditEvent : AppCompatActivity() {
@@ -42,12 +42,12 @@ class EditEvent : AppCompatActivity() {
     lateinit var _btn_edit_event_submit : Button
 
     lateinit var temp_id_terima : String
-    lateinit var navigationView : BottomNavigationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_event)
+
         db = FirebaseFirestore.getInstance()
 
         _et_edit_event_title = findViewById(R.id.et_edit_event_title)

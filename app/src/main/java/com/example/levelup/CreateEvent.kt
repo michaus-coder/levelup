@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -25,12 +26,15 @@ class CreateEvent : AppCompatActivity() {
     lateinit var full_date : String
     lateinit var full_time : String
 
+    private lateinit var auth : FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_event)
 
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         val _et_create_event_title = findViewById<EditText>(R.id.et_create_event_title)
         val _btn_create_event_setDate = findViewById<Button>(R.id.btn_create_event_setDate)
@@ -103,6 +107,7 @@ class CreateEvent : AppCompatActivity() {
         _btn_create_event_submit.setOnClickListener {
 
             val dataBaru = CreateEventData(
+                auth.currentUser!!?.email.toString(),
                 UUID.randomUUID().toString(),
                 _et_create_event_title.text.toString(),
                 full_date,

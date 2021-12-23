@@ -69,6 +69,7 @@ class DetailEvent : AppCompatActivity() {
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
+                        document.data.get("id_user").toString(),
                         document.data.get("id").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),

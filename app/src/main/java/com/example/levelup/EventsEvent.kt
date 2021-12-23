@@ -18,11 +18,6 @@ class EventsEvent : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
     private lateinit var _rvEvents : RecyclerView
     lateinit var db : FirebaseFirestore
     private var _arEvents = arrayListOf<EventDetail>()
-    private  var _namaEvent : MutableList<String> = emptyList<String>().toMutableList()
-    private  var _locationEvent : MutableList<String> = emptyList<String>().toMutableList()
-    private  var _dateEvent : MutableList<String> = emptyList<String>().toMutableList()
-    private  var _timeEvent : MutableList<String> = emptyList<String>().toMutableList()
-    private  var _priceEvent : MutableList<String> = emptyList<String>().toMutableList()
     private var auth : FirebaseAuth = Firebase.auth
     lateinit var navigationView : BottomNavigationView
 
@@ -41,7 +36,7 @@ class EventsEvent : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
         val adapterP = AdapterEvent(_arEvents)
         _rvEvents.adapter = adapterP
 
-        db.collection("createEventData")
+        db.collection("createEventData").whereNotEqualTo("id_user",auth.currentUser!!?.email.toString())
             .get()
             .addOnSuccessListener { result ->
                 _arEvents.clear()

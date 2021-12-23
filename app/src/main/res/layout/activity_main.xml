@@ -42,13 +42,13 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic"
                     android:layout_marginStart="160dp"
                     android:layout_marginTop="40dp"
                     android:text="Good day mate !"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -60,6 +60,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -67,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Recommendation for you"
                 android:textColor="@color/lv_purple"
                 android:textSize="16sp"
@@ -75,46 +76,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="130dp"
-                android:layout_height="175dp"
-                android:layout_marginStart="24dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvhomeevents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="24dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="88dp"
-                    app:cardBackgroundColor="@color/lv_purple"
-                    app:cardCornerRadius="5dp">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:text="21 Dec' 21"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="8sp" />
-                </androidx.cardview.widget.CardView>
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
