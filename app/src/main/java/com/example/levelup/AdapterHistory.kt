@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterHistory (
-    private val listHistory: ArrayList<HistoryEventListItem>
+    private val listHistory: ArrayList<CreateEventData>
 ) : RecyclerView.Adapter<AdapterHistory.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -39,10 +39,10 @@ class AdapterHistory (
 
 
     override fun onBindViewHolder(holder: AdapterHistory.ListViewHolder, position: Int) {
-        var note = listHistory[position]
-//        holder._EventName.setText(note.HistoryeventName)
-//        holder._EventLocation.setText(note.HistoryeventLocation)
-//        holder._EventDate.setText(note.HistoryeventDate)
+        var list = listHistory[position]
+        holder._EventName.setText(list.title)
+        holder._EventLocation.setText(list.location)
+        holder._EventDate.setText(list.date)
 
         holder._BtnReview.setOnClickListener {
             onItemClickCallback.review(position)

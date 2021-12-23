@@ -59,6 +59,7 @@ class EventsEvent : AppCompatActivity() {
                 val intent = Intent(this@EventsEvent,Payment::class.java)
                 intent.putExtra("price", _arEvents[posisition].eventPrice)
                 intent.putExtra("id_event", _arEvents[posisition].id)
+                startActivity(intent)
             }
 
         })
