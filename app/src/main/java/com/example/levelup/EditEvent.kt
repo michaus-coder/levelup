@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
 import android.widget.Toast
-
+import com.google.firebase.auth.FirebaseAuth
 
 
 class EditEvent : AppCompatActivity() {
@@ -42,6 +42,7 @@ class EditEvent : AppCompatActivity() {
     lateinit var _btn_edit_event_submit : Button
 
     lateinit var temp_id_terima : String
+    private lateinit var auth : FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +50,7 @@ class EditEvent : AppCompatActivity() {
         setContentView(R.layout.activity_edit_event)
 
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         _et_edit_event_title = findViewById(R.id.et_edit_event_title)
         _btn_edit_event_setDate = findViewById(R.id.btn_edit_event_setDate)
@@ -150,30 +152,31 @@ class EditEvent : AppCompatActivity() {
         //end spinner
 
         _btn_edit_event_submit.setOnClickListener {
-                val docRef = db.collection("createEventData").document(temp_id_terima)
-                docRef.get().addOnSuccessListener {
-                    val newEditData = CreateEventData(
-                        temp_id_terima,
-                        _et_edit_event_title.text.toString(),
-                        full_date,
-                        full_time,
-                        _et_edit_event_desc.text.toString(),
-                        _et_edit_event_link.text.toString(),
-                        _spinner_edit_event.selectedItem.toString(),
-                        _et_edit_event_price.text.toString(),
-                        _et_edit_event_age.text.toString(),
-                        _et_edit_event_location.text.toString())
+            val docRef = db.collection("createEventData").document(temp_id_terima)
+            docRef.get().addOnSuccessListener {
+                val newEditData = CreateEventData(
+                    auth.currentUser!!?.email.toString(),
+                    temp_id_terima,
+                    _et_edit_event_title.text.toString(),
+                    full_date,
+                    full_time,
+                    _et_edit_event_desc.text.toString(),
+                    _et_edit_event_link.text.toString(),
+                    _spinner_edit_event.selectedItem.toString(),
+                    _et_edit_event_price.text.toString(),
+                    _et_edit_event_age.text.toString(),
+                    _et_edit_event_location.text.toString())
 
-                    db.collection("createEventData").document(temp_id_terima).set(newEditData)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Event edited successfully", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@EditEvent, Dashboard::class.java)
-                            startActivity(intent)
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Error Edit Event: ${it.toString()}", Toast.LENGTH_SHORT).show()
-                        }
-                }
+                db.collection("createEventData").document(temp_id_terima).set(newEditData)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Event edited successfully", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@EditEvent, Dashboard::class.java)
+                        startActivity(intent)
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Error Edit Event: ${it.toString()}", Toast.LENGTH_SHORT).show()
+                    }
+            }
         }
 
     } // end onCreate
@@ -184,6 +187,7 @@ class EditEvent : AppCompatActivity() {
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
+                        document.data.get("id_user").toString(),
                         document.data.get("id").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),
