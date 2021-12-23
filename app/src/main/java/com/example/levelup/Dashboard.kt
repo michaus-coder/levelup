@@ -29,6 +29,7 @@ class Dashboard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
     var dataArrDashboard : ArrayList<CreateEventData> = ArrayList<CreateEventData>()
 
     lateinit var navigationView : BottomNavigationView
+    private lateinit var auth : FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,7 @@ class Dashboard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
         _rv_dashboard = findViewById(R.id.rv_dashboard)
 
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         readData()
         TampilkanData()
@@ -152,11 +154,12 @@ class Dashboard : AppCompatActivity(), BottomNavigationView.OnNavigationItemSele
     }
 
     fun readData() {
-        db.collection("createEventData").get()
+        db.collection("createEventData").whereEqualTo("id_user", auth.currentUser!!?.email.toString()).get()
             .addOnSuccessListener { result ->
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
+                        document.data.get("id_user").toString(),
                         document.data.get("id").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),

@@ -16,8 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
 import android.widget.Toast
-
-
+import com.google.firebase.auth.FirebaseAuth
 
 
 class EditEvent : AppCompatActivity() {
@@ -43,6 +42,7 @@ class EditEvent : AppCompatActivity() {
     lateinit var _btn_edit_event_submit : Button
 
     lateinit var temp_id_terima : String
+    private lateinit var auth : FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +50,7 @@ class EditEvent : AppCompatActivity() {
         setContentView(R.layout.activity_edit_event)
 
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         _et_edit_event_title = findViewById(R.id.et_edit_event_title)
         _btn_edit_event_setDate = findViewById(R.id.btn_edit_event_setDate)
@@ -154,6 +155,7 @@ class EditEvent : AppCompatActivity() {
                 val docRef = db.collection("createEventData").document(temp_id_terima)
                 docRef.get().addOnSuccessListener {
                     val newEditData = CreateEventData(
+                        auth.currentUser!!?.email.toString(),
                         temp_id_terima,
                         _et_edit_event_title.text.toString(),
                         full_date,
@@ -185,6 +187,7 @@ class EditEvent : AppCompatActivity() {
                 dataArrDashboard.clear()
                 for (document in result) {
                     val dataBaruDashboard = CreateEventData(
+                        document.data.get("id_user").toString(),
                         document.data.get("id").toString(),
                         document.data.get("title").toString(),
                         document.data.get("date").toString(),
