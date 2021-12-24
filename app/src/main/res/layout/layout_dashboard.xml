@@ -14,7 +14,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="140dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -32,11 +32,11 @@
 
                 <TextView
                     android:id="@+id/tv_dashboard_judul"
-                    android:layout_width="130dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="29dp"
-                    android:layout_marginBottom="52dp"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginBottom="81dp"
                     android:text="Skripsi 101"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
                     android:id="@+id/btn_edit_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:backgroundTint="#FCCB63"
                     android:text="Edit"
@@ -61,28 +61,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="10dp"
                     android:backgroundTint="#FCCB63"
                     android:text="Delete"
                     android:textColor="#7030B5"
                     android:textSize="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_edit_dashboard" />
 
                 <Button
                     android:id="@+id/btn_detail_dashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginEnd="16dp"
                     android:backgroundTint="#FCCB63"
                     android:text="Detail"
                     android:textColor="#7030B5"
                     android:textSize="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_edit_dashboard"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_delete_dashboard" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
